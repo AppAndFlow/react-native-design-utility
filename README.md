@@ -1,3 +1,7 @@
+## react-native-design-utlity
+
+I've been using [Tailwind](https://github.com/tailwindcss/tailwindcss) lately for the web. Loved it, but I didn't find any solution like this for react-native. So I build one who look like it but more for react-native design styling.
+
 ## Installation
 
 ```
