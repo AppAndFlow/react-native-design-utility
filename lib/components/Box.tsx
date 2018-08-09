@@ -5,6 +5,7 @@ import WrappedComponent from './WrappedComponent';
 import { spaceUtils } from '../utils/space';
 import { ITheme } from '../types/ITheme';
 import { SpaceType } from '../types/Space';
+import { boxAlignUtils } from '../utils/box/align';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -14,6 +15,12 @@ export interface IProps {
   style: any;
 
   bg?: string;
+
+  center?: boolean;
+
+  h?: number | string;
+
+  w?: number | string;
 
   m?: SpaceType;
   mb?: SpaceType;
@@ -34,9 +41,12 @@ export interface IProps {
 
 const Box: React.SFC<IInjectedProps & IProps> = props => {
   const _space = spaceUtils(props);
+  const _align = boxAlignUtils(props);
 
   const _style: {
     backgroundColor?: string;
+    height?: string | number;
+    width?: string | number;
   } = {};
 
   if (props.bg) {
@@ -46,10 +56,35 @@ const Box: React.SFC<IInjectedProps & IProps> = props => {
     }
   }
 
+  if (props.h) {
+    if (typeof props.h === 'string') {
+      _style.height = props.h;
+    } else if (typeof props.h === 'number') {
+      if (props.h < 1) {
+        _style.height = `${props.h * 100}%`;
+      } else {
+        _style.height = props.h;
+      }
+    }
+  }
+
+  if (props.w) {
+    if (typeof props.w === 'string') {
+      _style.width = props.w;
+    } else if (typeof props.w === 'number') {
+      if (props.w < 1) {
+        _style.width = `${props.w * 100}%`;
+      } else {
+        _style.width = props.w;
+      }
+    }
+  }
+
   const style = StyleSheet.create({
     box: {
       ..._style,
       ..._space,
+      ..._align,
     },
   });
 
