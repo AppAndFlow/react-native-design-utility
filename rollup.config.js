@@ -4,6 +4,7 @@ import resolve from 'rollup-plugin-node-resolve';
 import { uglify } from 'rollup-plugin-uglify';
 import replace from 'rollup-plugin-replace';
 import sourceMaps from 'rollup-plugin-sourcemaps';
+import builtins from 'rollup-plugin-node-builtins';
 
 import pkg from './package.json';
 
@@ -50,14 +51,14 @@ export default [
             pure_getters: true,
           },
           warnings: true,
-          // ecma: 5,
           toplevel: false,
         }),
+      builtins(),
     ],
   }),
 
   Object.assign({}, shared, {
-    // external: shared.external.concat(Object.keys(pkg.dependencies)),
+    external: shared.external.concat(Object.keys(pkg.dependencies)),
     output: [
       {
         file: 'dist/ReactNativeDesignUtility.es6.js',
@@ -76,4 +77,19 @@ export default [
       process.env.NODE_ENV === 'production' && filesize(),
     ],
   }),
+
+  {
+    input: 'lib/init.ts',
+    output: {
+      format: 'cjs',
+      file: 'dist/init.js'
+    },
+  },
+  {
+    input: 'lib/theme.ts',
+    output: {
+      format: 'es',
+      file: 'dist/theme.js'
+    },
+  },
 ];

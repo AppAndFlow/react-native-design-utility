@@ -13,6 +13,7 @@ import { FontSizeType } from '../types/FontSize';
 import { letterSpacingUtils } from '../utils/text/letterSpacing';
 import { LetterSpacingType } from '../types/LetterSpacing';
 import { borderUtils } from '../utils/border';
+import { TextAlignType } from '../types/TextAlign';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -20,6 +21,10 @@ export interface IInjectedProps {
 
 type Props = {
   style: any;
+
+  border?: number;
+
+  align: TextAlignType;
 
   m?: SpaceType;
   mb?: SpaceType;

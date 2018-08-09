@@ -64,7 +64,7 @@ const Box: React.SFC<IInjectedProps & IProps> = props => {
     if (typeof props.h === 'string') {
       _style.height = props.h;
     } else if (typeof props.h === 'number') {
-      if (props.h < 1) {
+      if (props.h <= 1) {
         _style.height = `${props.h * 100}%`;
       } else {
         _style.height = props.h;
@@ -76,7 +76,7 @@ const Box: React.SFC<IInjectedProps & IProps> = props => {
     if (typeof props.w === 'string') {
       _style.width = props.w;
     } else if (typeof props.w === 'number') {
-      if (props.w < 1) {
+      if (props.w <= 1) {
         _style.width = `${props.w * 100}%`;
       } else {
         _style.width = props.w;

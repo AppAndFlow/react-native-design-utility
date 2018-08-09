@@ -4,9 +4,16 @@ import { theme } from './theme';
 
 export const UtilityThemeContext = React.createContext(theme);
 
-export class UtilityThemeProvider extends React.Component {
+interface IProps {
+  theme?: any;
+}
+
+export class UtilityThemeProvider extends React.Component<IProps> {
+  static defaultProps = {
+    theme: null,
+  };
   state = {
-    theme: theme,
+    theme: this.props.theme || theme,
   };
   render() {
     return (
