@@ -1,3 +1,9 @@
+const color = {
+  red: '#ff4545',
+  blue: 'blue',
+  purple: 'purple',
+};
+
 export const theme = {
   text: {
     size: {
@@ -18,11 +24,7 @@ export const theme = {
       wide: 1.5,
     },
   },
-  color: {
-    red: '#ff4545',
-    blue: 'blue',
-    purple: 'purple',
-  },
+  color,
   space: {
     xs: 8,
     sm: 16,
@@ -30,6 +32,20 @@ export const theme = {
     lg: 36,
     xl: 40,
   },
+  borders: [
+    {
+      borderWidth: 1,
+      borderColor: '#333',
+    },
+    {
+      borderWidth: 2,
+      borderColor: '#333',
+    },
+    {
+      borderWidth: 5,
+      borderColor: 'green',
+    },
+  ],
   button: {
     disabled: {
       opacity: 0.5,

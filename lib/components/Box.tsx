@@ -6,6 +6,7 @@ import { spaceUtils } from '../utils/space';
 import { ITheme } from '../types/ITheme';
 import { SpaceType } from '../types/Space';
 import { boxAlignUtils } from '../utils/box/align';
+import { borderUtils } from '../utils/border';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -21,6 +22,8 @@ export interface IProps {
   h?: number | string;
 
   w?: number | string;
+
+  border?: number;
 
   m?: SpaceType;
   mb?: SpaceType;
@@ -42,6 +45,7 @@ export interface IProps {
 const Box: React.SFC<IInjectedProps & IProps> = props => {
   const _space = spaceUtils(props);
   const _align = boxAlignUtils(props);
+  const _border = borderUtils(props);
 
   const _style: {
     backgroundColor?: string;
@@ -85,10 +89,16 @@ const Box: React.SFC<IInjectedProps & IProps> = props => {
       ..._style,
       ..._space,
       ..._align,
+      ..._border,
+      ...props.style,
     },
   });
 
-  return <View style={[style.box, props.style]}>{props.children}</View>;
+  return <View style={style.box}>{props.children}</View>;
+};
+
+Box.defaultProps = {
+  style: {},
 };
 
 export default WrappedComponent(Box);

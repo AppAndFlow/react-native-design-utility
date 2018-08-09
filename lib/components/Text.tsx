@@ -12,6 +12,7 @@ import { SpaceType } from '../types/Space';
 import { FontSizeType } from '../types/FontSize';
 import { letterSpacingUtils } from '../utils/text/letterSpacing';
 import { LetterSpacingType } from '../types/LetterSpacing';
+import { borderUtils } from '../utils/border';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -47,21 +48,26 @@ const Text: React.SFC<IInjectedProps & Props> = props => {
   const _color = colorUtils(props);
   const _align = textAlignUtils(props);
   const _spacing = letterSpacingUtils(props);
-
-  const _style = {
-    ..._space,
-    ..._size,
-    ..._weight,
-    ..._color,
-    ..._align,
-    ..._spacing,
-  };
+  const _border = borderUtils(props);
 
   const style = StyleSheet.create({
-    text: _style,
+    text: {
+      ..._space,
+      ..._size,
+      ..._weight,
+      ..._color,
+      ..._align,
+      ..._spacing,
+      ..._border,
+      ...props.style,
+    },
   });
 
-  return <RnText style={[style.text, props.style]}>{props.children}</RnText>;
+  return <RnText style={style.text}>{props.children}</RnText>;
+};
+
+Text.defaultProps = {
+  style: {},
 };
 
 export default WrappedComponent(Text);

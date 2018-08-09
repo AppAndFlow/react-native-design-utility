@@ -26,4 +26,8 @@ export interface ITheme {
       wide: number;
     };
   };
+  borders: Array<{
+    borderWidth: number;
+    borderColor: string;
+  }>;
 }
