@@ -3,6 +3,8 @@
   "version": "0.0.1",
   "description": "react-native utility library for ui",
   "main": "dist/ReactNativeDesignUtility.js",
+  "module": "dist/ReactNativeDesignUtility.es6.js",
+  "typings": "dist/index.d.ts",
   "license": "MIT",
   "files": [
     "dist"
