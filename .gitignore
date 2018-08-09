@@ -74,3 +74,5 @@ typings/
 
 dist
 compiled
+
+yalc.lock
