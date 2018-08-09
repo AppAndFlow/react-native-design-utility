@@ -1,4 +1,4 @@
-## react-native-design-utlity
+## react-native-design-utlity [Still in development]
 
 I've been using [Tailwind](https://github.com/tailwindcss/tailwindcss) lately for the web. Loved it, but I didn't find any solution like this for react-native. So I build one who look like it but more for react-native design styling.
 
@@ -61,7 +61,7 @@ class MyComponent extends Component {
   render() {
     return (
       <Box>
-        <Box bg="red" p="sm" mb="lg">
+        <Box w="20%" bg="red" p="sm" mb="lg">
           <Text border={1} size="lg" color="blueDarker" center bold>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo,
             officiis quae deserunt exercitationem beatae nam atque nesciunt.
