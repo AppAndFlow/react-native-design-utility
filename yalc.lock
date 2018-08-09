@@ -1,0 +1,9 @@
+{
+  "version": "v1",
+  "packages": {
+    "react-native-design-utility": {
+      "signature": "7f585f0262fbf1bccf7108791bb145d3",
+      "file": true
+    }
+  }
+}
