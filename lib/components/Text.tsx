@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Text as RnText, StyleSheet } from 'react-native';
+import get from 'lodash.get';
 
 import WrappedComponent from './WrappedComponent';
 import { spaceUtils } from '../utils/space';
@@ -73,7 +74,7 @@ const Text: React.SFC<IInjectedProps & Props> = props => {
 
   const child = textManipulationUtils(props);
 
-  const fontFamily = props.theme.text.font || undefined;
+  const fontFamily = get(props, ['theme', 'text', 'font']);
 
   const style = StyleSheet.create({
     text: {
