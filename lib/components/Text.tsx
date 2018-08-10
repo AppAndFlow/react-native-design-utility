@@ -99,4 +99,6 @@ Text.defaultProps = {
   style: {},
 };
 
+Text.displayName = 'Text';
+
 export default WrappedComponent(Text);

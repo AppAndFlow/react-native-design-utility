@@ -97,4 +97,6 @@ Box.defaultProps = {
   style: {},
 };
 
+Box.displayName = 'Box';
+
 export default WrappedComponent(Box);
