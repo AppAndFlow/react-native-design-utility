@@ -18,6 +18,7 @@ interface IProps {
   capitalizeEach?: boolean;
   uppercase?: boolean;
   lowercase?: boolean;
+  thousand?: boolean;
   children?: React.ReactNode;
 }
 

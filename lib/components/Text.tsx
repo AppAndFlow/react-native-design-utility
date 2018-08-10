@@ -65,6 +65,7 @@ type Props = {
   lowercase?: boolean;
   capitalize?: boolean;
   capitalizeEach?: boolean;
+  thousand?: boolean;
 
   bold?: boolean;
   light?: boolean;
@@ -97,6 +98,7 @@ const Text: React.SFC<IInjectedProps & Props> = ({
   uppercase,
   capitalize,
   capitalizeEach,
+  thousand,
 
   center,
   right,
@@ -153,6 +155,7 @@ const Text: React.SFC<IInjectedProps & Props> = ({
     lowercase,
     uppercase,
     children,
+    thousand,
   });
 
   const fontFamily = get(theme, ['text', 'font']);

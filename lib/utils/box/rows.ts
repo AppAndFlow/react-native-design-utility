@@ -14,13 +14,12 @@ export const boxRowsUtils = (props: IProps) => {
   const rows = get(props, 'rows');
 
   if (rows && Array.isArray(rows)) {
-    let index = 0;
     newChild = React.Children.map(
       props.children,
-      (child: React.ReactElement<any>) => {
+      (child: React.ReactElement<any>, i) => {
         if (child.type === Box) {
           return React.cloneElement(child, {
-            f: rows[index] || 1,
+            f: rows[i] || 1,
           });
         }
 
