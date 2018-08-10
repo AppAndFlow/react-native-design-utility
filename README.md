@@ -69,13 +69,30 @@ class MyComponent extends Component {
             voluptatem, vero quos ea incidunt?
           </Text>
         </Box>
-        <Box w={1} bg="blue" mb="sm" center py="sm">
-          <Text size="xl" bold>
-            Hello
-          </Text>
-          <Text size="xl" bold thousand>
-            $5000
-          </Text>
+        <Box
+          w={1}
+          bg="blue"
+          mb="sm"
+          center
+          py="sm"
+          rows={[1, 2, 1]}
+          dir="row"
+        >
+          <Box bg="redDarker">
+            <Text size="xl" bold capitalize>
+              hello
+            </Text>
+          </Box>
+          <Box bg="green">
+            <Text size="xl" bold thousand>
+              Hell ya $5000
+            </Text>
+          </Box>
+          <Box bg="red">
+            <Text size="xl" bold uppercase>
+              boom
+            </Text>
+          </Box>
         </Box>
         <Box border={2} center h={200} w={1 / 2} bg="red">
           <Box h={1 / 3} w={1 / 2} bg="blue" f={1} />
@@ -93,32 +110,33 @@ class MyComponent extends Component {
 
 ### Box
 
-| Props   | Value                                       | Description              |
-| ------- | ------------------------------------------- | ------------------------ |
-| m       | xs, sm, md, lg, xl or any number            | margin                   |
-| mt      | xs, sm, md, lg, xl or any number            | marginTop                |
-| mb      | xs, sm, md, lg, xl or any number            | marginBottom             |
-| mr      | xs, sm, md, lg, xl or any number            | marginRight              |
-| ml      | xs, sm, md, lg, xl or any number            | marginLeft               |
-| my      | xs, sm, md, lg, xl or any number            | marginVertical           |
-| mx      | xs, sm, md, lg, xl or any number            | marginHorizontal         |
-| p       | xs, sm, md, lg, xl or any number            | padding                  |
-| pt      | xs, sm, md, lg, xl or any number            | paddingTop               |
-| pb      | xs, sm, md, lg, xl or any number            | paddingBottom            |
-| pr      | xs, sm, md, lg, xl or any number            | paddingRight             |
-| pl      | xs, sm, md, lg, xl or any number            | paddingLeft              |
-| py      | xs, sm, md, lg, xl or any number            | paddingVertical          |
-| px      | xs, sm, md, lg, xl or any number            | paddingHorizontal        |
-| center  | boolean                                     | center element with flex |
-| border  | number                                      | give border at index     |
-| h       | number, fraction or string                  | height                   |
-| w       | number, fraction or string                  | width                    |
-| bg      | string                                      | backgroundColor          |
-| dir     | col, col-reverse, row, row-reverse          | flexDirection            |
-| align   | start, end, center, stretch, baseline       | alignItems               |
-| justify | start, end, center, between, around, evenly | justifyContent           |
-| f       | number                                      | flex value               |
-| style   | stylesheet                                  | any other style          |
+| Props   | Value                                       | Description                                                      |
+| ------- | ------------------------------------------- | ---------------------------------------------------------------- |
+| m       | xs, sm, md, lg, xl or any number            | margin                                                           |
+| mt      | xs, sm, md, lg, xl or any number            | marginTop                                                        |
+| mb      | xs, sm, md, lg, xl or any number            | marginBottom                                                     |
+| mr      | xs, sm, md, lg, xl or any number            | marginRight                                                      |
+| ml      | xs, sm, md, lg, xl or any number            | marginLeft                                                       |
+| my      | xs, sm, md, lg, xl or any number            | marginVertical                                                   |
+| mx      | xs, sm, md, lg, xl or any number            | marginHorizontal                                                 |
+| p       | xs, sm, md, lg, xl or any number            | padding                                                          |
+| pt      | xs, sm, md, lg, xl or any number            | paddingTop                                                       |
+| pb      | xs, sm, md, lg, xl or any number            | paddingBottom                                                    |
+| pr      | xs, sm, md, lg, xl or any number            | paddingRight                                                     |
+| pl      | xs, sm, md, lg, xl or any number            | paddingLeft                                                      |
+| py      | xs, sm, md, lg, xl or any number            | paddingVertical                                                  |
+| px      | xs, sm, md, lg, xl or any number            | paddingHorizontal                                                |
+| center  | boolean                                     | center element with flex                                         |
+| border  | number                                      | give border at index                                             |
+| h       | number, fraction or string                  | height                                                           |
+| w       | number, fraction or string                  | width                                                            |
+| bg      | string                                      | backgroundColor                                                  |
+| dir     | col, col-reverse, row, row-reverse          | flexDirection                                                    |
+| align   | start, end, center, stretch, baseline       | alignItems                                                       |
+| justify | start, end, center, between, around, evenly | justifyContent                                                   |
+| f       | number                                      | flex value                                                       |
+| rows    | array of number                             | add flex value to child Box at indexof, default 1 if not provide |
+| style   | stylesheet                                  | any other style                                                  |
 
 ### Text
 

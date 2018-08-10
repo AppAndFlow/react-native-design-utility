@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, StyleSheet, FlexAlignType } from 'react-native';
+import get from 'lodash.get';
 
 import WrappedComponent from './WrappedComponent';
 import { spaceUtils } from '../utils/space';
@@ -10,6 +11,7 @@ import { borderUtils } from '../utils/border';
 import { boxSizeUtils } from '../utils/box/size';
 import { FlexDirectionType, JustifyContentType } from '../types/Flex';
 import { boxFlexUtils } from '../utils/box/flex';
+import { boxRowsUtils } from '../utils/box/rows';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -64,20 +66,18 @@ const Box: React.SFC<IInjectedProps & IProps> = props => {
     backgroundColor?: string;
   } = {};
 
-  if (props.bg) {
-    const bg = props.theme.color[props.bg];
-    if (bg) {
-      _style.backgroundColor = bg;
+  const themeColor = get(props, ['theme', 'color']);
+
+  const bg = get(props, 'bg');
+
+  if (bg) {
+    const color = themeColor[bg];
+    if (color) {
+      _style.backgroundColor = color;
     }
   }
 
-  // if (props.rows) {
-  //   const childs = React.Children.map(props.children, (child, index) =>
-  //     React.cloneElement(child[index], {
-
-  //     }),
-  //   );
-  // }
+  const newChild = boxRowsUtils(props);
 
   const style = StyleSheet.create({
     box: {
@@ -91,7 +91,7 @@ const Box: React.SFC<IInjectedProps & IProps> = props => {
     },
   });
 
-  return <View style={style.box}>{props.children}</View>;
+  return <View style={style.box}>{newChild}</View>;
 };
 
 Box.defaultProps = {
