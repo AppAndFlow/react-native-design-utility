@@ -1,9 +1,22 @@
 import { FlexAlignType } from 'react-native';
 import get from 'lodash.get';
 
-import { JustifyContentType, FlexDirectionType } from '../../types/Flex';
+import {
+  JustifyContentType,
+  FlexDirectionType,
+  DirType,
+  AlignType,
+  JustifyType,
+} from '../../types/Flex';
 
-export const boxFlexUtils = (props: any) => {
+interface IProps {
+  f?: number;
+  dir?: DirType;
+  align?: AlignType;
+  justify?: JustifyType;
+}
+
+export const boxFlexUtils = (props: IProps) => {
   const _style: {
     flexDirection?: FlexDirectionType;
     alignItems?: FlexAlignType;

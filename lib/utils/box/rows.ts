@@ -3,7 +3,12 @@ import * as React from 'react';
 
 import Box from '../../components/Box';
 
-export const boxRowsUtils = (props: any) => {
+interface IProps {
+  rows?: number[];
+  children?: React.ReactNode;
+}
+
+export const boxRowsUtils = (props: IProps) => {
   let newChild = props.children;
 
   const rows = get(props, 'rows');

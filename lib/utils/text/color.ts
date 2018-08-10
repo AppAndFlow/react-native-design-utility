@@ -1,6 +1,13 @@
 import get from 'lodash.get';
 
-export const colorUtils = (props: any) => {
+import { ITheme } from '../../types/ITheme';
+
+interface IProps {
+  color?: string;
+  theme: ITheme;
+}
+
+export const colorUtils = (props: IProps) => {
   const _style: {
     color?: string;
   } = {};

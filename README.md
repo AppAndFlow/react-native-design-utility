@@ -1,6 +1,6 @@
 ## react-native-design-utlity [Still in development]
 
-I've been using [Tailwind](https://github.com/tailwindcss/tailwindcss) lately for the web. Loved it, but I didn't find any solution like this for react-native. So I build one who look like it but more for react-native design styling. I've add some text utility like `capitalize`, `capitalizeEach`, `thousand` etc.
+I've been using [Tailwind](https://github.com/tailwindcss/tailwindcss) lately for the web. Loved it, but I didn't find any solution like this for react-native. So I build one who look like it but more for react-native design styling. I've add some text utility like `capitalize`, `capitalizeEach`, `thousand` etc. You pass props and this is pass to the StyleSheet, so this will not affect the perfomance.
 
 ## Installation
 
@@ -108,6 +108,18 @@ class MyComponent extends Component {
     )
   }
 }
+```
+
+You can pass all the props available for both View and Text.
+
+## Custom style
+
+You can pass any style props if this is not existing.
+
+Example
+
+```js
+<Box size="xl" style={{ borderBottomLeftRadius: 1 }} />
 ```
 
 ### Box

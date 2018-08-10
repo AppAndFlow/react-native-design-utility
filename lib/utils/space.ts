@@ -1,6 +1,28 @@
 import get from 'lodash.get';
 
-export const spaceUtils = (props: any) => {
+import { ITheme } from '../types/ITheme';
+
+type Props = {
+  theme: ITheme;
+} & Partial<{
+  m: number | string;
+  mb: number | string;
+  mt: number | string;
+  mr: number | string;
+  ml: number | string;
+  my: number | string;
+  mx: number | string;
+
+  p: number | string;
+  pb: number | string;
+  py: number | string;
+  pt: number | string;
+  pr: number | string;
+  pl: number | string;
+  px: number | string;
+}>;
+
+export const spaceUtils = (props: Props) => {
   const _style: {
     marginBottom?: number;
     marginTop?: number;
@@ -186,7 +208,7 @@ export const spaceUtils = (props: any) => {
           _style.paddingVertical = space;
         }
       } else if (typeof py === 'number') {
-        _style.paddingVertical = props.my;
+        _style.paddingVertical = py;
       }
     }
 

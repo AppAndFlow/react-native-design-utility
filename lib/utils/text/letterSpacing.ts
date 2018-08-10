@@ -1,6 +1,14 @@
 import get from 'lodash.get';
 
-export const letterSpacingUtils = (props: any) => {
+import { LetterSpacingType } from '../../types/LetterSpacing';
+import { ITheme } from '../../types/ITheme';
+
+interface IProps {
+  ls?: LetterSpacingType;
+  theme: ITheme;
+}
+
+export const letterSpacingUtils = (props: IProps) => {
   const _style: {
     letterSpacing?: number;
   } = {};

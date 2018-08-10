@@ -1,6 +1,11 @@
 import get from 'lodash.get';
 
-export const boxSizeUtils = (props: any) => {
+interface IProps {
+  h?: string | number;
+  w?: string | number;
+}
+
+export const boxSizeUtils = (props: IProps) => {
   const _style: {
     height?: string | number;
     width?: string | number;

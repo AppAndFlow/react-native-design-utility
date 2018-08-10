@@ -1,6 +1,15 @@
 import get from 'lodash.get';
 
-export const textAlignUtils = (props: any) => {
+import { ITheme } from '../../types/ITheme';
+
+interface IProps {
+  theme: ITheme;
+  center?: boolean;
+  right?: boolean;
+  left?: boolean;
+}
+
+export const textAlignUtils = (props: IProps) => {
   const _style: {
     textAlign?: string;
   } = {};

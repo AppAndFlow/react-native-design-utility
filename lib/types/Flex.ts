@@ -11,3 +11,15 @@ export type FlexDirectionType =
   | 'column'
   | 'row-reverse'
   | 'column-reverse';
+
+export type DirType = 'col' | 'col-reverse' | 'row' | 'row-reverse';
+
+export type AlignType = 'center' | 'start' | 'end' | 'stretch' | 'baseline';
+
+export type JustifyType =
+  | 'between'
+  | 'around'
+  | 'evenly'
+  | 'start'
+  | 'center'
+  | 'end';

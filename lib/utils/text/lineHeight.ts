@@ -1,6 +1,14 @@
 import get from 'lodash.get';
 
-export const lineHeightUtils = (props: any, fontSize?: number) => {
+import { ITheme } from '../../types/ITheme';
+import { LineHeightType } from '../../types/LineHeight';
+
+interface IProps {
+  theme: ITheme;
+  lineH?: LineHeightType;
+}
+
+export const lineHeightUtils = (props: IProps, fontSize?: number) => {
   const _style: {
     lineHeight?: number;
   } = {};

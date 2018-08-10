@@ -1,6 +1,14 @@
 import get from 'lodash.get';
 
-export const textSizeUtils = (props: any) => {
+import { ITheme } from '../../types/ITheme';
+import { FontSizeType } from '../../types/FontSize';
+
+interface IProps {
+  theme: ITheme;
+  size?: number | FontSizeType;
+}
+
+export const textSizeUtils = (props: IProps) => {
   const _style: {
     fontSize?: number;
   } = {};

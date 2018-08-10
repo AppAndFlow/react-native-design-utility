@@ -1,11 +1,19 @@
 {
   "name": "react-native-design-utility",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "react-native utility library for ui",
   "main": "dist/ReactNativeDesignUtility.js",
   "module": "dist/ReactNativeDesignUtility.es6.js",
   "typings": "dist/index.d.ts",
   "license": "MIT",
+  "repository": {
+    "url": "https://github.com/EQuimper/react-native-design-utility"
+  },
+  "keywords": [
+    "react-native",
+    "design-system",
+    "design-utility"
+  ],
   "files": [
     "dist"
   ],

@@ -1,6 +1,13 @@
 import get from 'lodash.get';
 
-export const borderUtils = (props: any) => {
+import { ITheme } from '../types/ITheme';
+
+interface IProps {
+  theme: ITheme;
+  border?: number;
+}
+
+export const borderUtils = (props: IProps) => {
   let _style = {};
 
   const border = get(props, 'border');

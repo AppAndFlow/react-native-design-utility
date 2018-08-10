@@ -14,11 +14,12 @@ import { FontSizeType } from '../types/FontSize';
 import { letterSpacingUtils } from '../utils/text/letterSpacing';
 import { LetterSpacingType } from '../types/LetterSpacing';
 import { borderUtils } from '../utils/border';
-import { TextAlignType } from '../types/TextAlign';
 import { textManipulationUtils } from '../utils/text/manipulation';
 import { fontStyleUtils } from '../utils/text/fontStyle';
 import { lineHeightUtils } from '../utils/text/lineHeight';
 import { decoUtils } from '../utils/text/deco';
+import { LineHeightType } from '../types/LineHeight';
+import { TextDecoType } from '../types/TextDeco';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -31,11 +32,15 @@ type Props = {
 
   italic?: boolean;
 
-  lineH?: 'none' | 'tight' | 'normal' | 'large';
+  lineH?: LineHeightType;
 
-  deco?: 'underline' | 'none' | 'through' | 'underline-through';
+  deco?: TextDecoType;
 
-  align?: TextAlignType;
+  center?: boolean;
+  left?: boolean;
+  right?: boolean;
+
+  color?: string;
 
   m?: SpaceType;
   mb?: SpaceType;
@@ -58,23 +63,99 @@ type Props = {
 
   uppercase?: boolean;
   lowercase?: boolean;
+  capitalize?: boolean;
+  capitalizeEach?: boolean;
+
+  bold?: boolean;
+  light?: boolean;
+  normal?: boolean;
 };
 
-const Text: React.SFC<IInjectedProps & Props> = props => {
-  const _space = spaceUtils(props);
-  const _size = textSizeUtils(props);
-  const _weight = weightUtils(props);
-  const _color = colorUtils(props);
-  const _align = textAlignUtils(props);
-  const _spacing = letterSpacingUtils(props);
-  const _border = borderUtils(props);
-  const _fontStyle = fontStyleUtils(props);
-  const _lineHeight = lineHeightUtils(props, _size.fontSize);
-  const _deco = decoUtils(props);
+const Text: React.SFC<IInjectedProps & Props> = ({
+  theme,
+  border,
+  color,
 
-  const child = textManipulationUtils(props);
+  m,
+  mb,
+  mt,
+  mr,
+  ml,
+  my,
+  mx,
+  p,
+  pb,
+  pt,
+  pr,
+  pl,
+  px,
+  py,
 
-  const fontFamily = get(props, ['theme', 'text', 'font']);
+  ls,
+
+  lowercase,
+  uppercase,
+  capitalize,
+  capitalizeEach,
+
+  center,
+  right,
+  left,
+
+  lineH,
+  size,
+
+  bold,
+  normal,
+  light,
+
+  italic,
+  deco,
+  style: customStyle,
+  children,
+  ...rest
+}) => {
+  const _space = spaceUtils({
+    m,
+    mb,
+    mt,
+    mr,
+    ml,
+    my,
+    mx,
+    p,
+    pb,
+    py,
+    pt,
+    pr,
+    pl,
+    px,
+    theme,
+  });
+  const _size = textSizeUtils({ size, theme });
+  const _weight = weightUtils({ bold, normal, light, theme });
+  const _color = colorUtils({ color, theme });
+  const _align = textAlignUtils({
+    center,
+    right,
+    left,
+    theme,
+  });
+  const _spacing = letterSpacingUtils({ ls, theme });
+  const _border = borderUtils({ border, theme });
+  const _fontStyle = fontStyleUtils({ italic });
+  const _lineHeight = lineHeightUtils({ lineH, theme }, _size.fontSize);
+  const _deco = decoUtils({ deco });
+
+  const child = textManipulationUtils({
+    capitalize,
+    capitalizeEach,
+    lowercase,
+    uppercase,
+    children,
+  });
+
+  const fontFamily = get(theme, ['text', 'font']);
 
   const style = StyleSheet.create({
     text: {
@@ -89,11 +170,15 @@ const Text: React.SFC<IInjectedProps & Props> = props => {
       ..._lineHeight,
       ..._deco,
       fontFamily,
-      ...props.style,
+      ...customStyle,
     },
   });
 
-  return <RnText style={style.text}>{child}</RnText>;
+  return (
+    <RnText {...rest} style={style.text}>
+      {child}
+    </RnText>
+  );
 };
 
 Text.defaultProps = {

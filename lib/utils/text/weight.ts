@@ -1,6 +1,15 @@
 import get from 'lodash.get';
 
-export const weightUtils = (props: any) => {
+import { ITheme } from '../../types/ITheme';
+
+interface IProps {
+  theme: ITheme;
+  light?: boolean;
+  bold?: boolean;
+  normal?: boolean;
+}
+
+export const weightUtils = (props: IProps) => {
   const _style: {
     fontWeight?: string;
   } = {};

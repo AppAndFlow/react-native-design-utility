@@ -1,6 +1,10 @@
 import get from 'lodash.get';
 
-export const boxAlignUtils = (props: any) => {
+interface IProps {
+  center?: boolean;
+}
+
+export const boxAlignUtils = (props: IProps) => {
   const _style: {
     justifyContent?: 'center' | 'flex-start' | 'flex-end';
     alignItems?: 'center' | 'flex-start' | 'flex-end';

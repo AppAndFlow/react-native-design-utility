@@ -1,6 +1,10 @@
 import get from 'lodash.get';
 
-export const fontStyleUtils = (props: any) => {
+interface IProps {
+  italic?: boolean;
+}
+
+export const fontStyleUtils = (props: IProps) => {
   const _style: {
     fontStyle?: 'normal' | 'italic';
   } = {};

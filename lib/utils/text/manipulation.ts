@@ -13,7 +13,15 @@ const capitalizeEachWords = (str: string) =>
 const thousandSeparator = (str: string | number) =>
   String(str).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-export const textManipulationUtils = (props: any) => {
+interface IProps {
+  capitalize?: boolean;
+  capitalizeEach?: boolean;
+  uppercase?: boolean;
+  lowercase?: boolean;
+  children?: React.ReactNode;
+}
+
+export const textManipulationUtils = (props: IProps) => {
   let newChild = props.children;
 
   if (typeof props.children === 'string') {

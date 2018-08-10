@@ -11,6 +11,7 @@ import { borderUtils } from '../utils/border';
 import { boxSizeUtils } from '../utils/box/size';
 import { boxFlexUtils } from '../utils/box/flex';
 import { boxRowsUtils } from '../utils/box/rows';
+import { DirType, AlignType, JustifyType } from '../types/Flex';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -31,9 +32,9 @@ export interface IProps {
 
   border?: number;
 
-  dir?: 'col' | 'col-reverse' | 'row' | 'row-revers';
-  align?: 'center' | 'start' | 'end' | 'stretch' | 'baseline';
-  justify?: 'between' | 'around' | 'evenly' | 'start' | 'center' | 'end';
+  dir?: DirType;
+  align?: AlignType;
+  justify?: JustifyType;
 
   m?: SpaceType;
   mb?: SpaceType;
@@ -54,20 +55,69 @@ export interface IProps {
   rows?: number[];
 }
 
-const Box: React.SFC<IInjectedProps & IProps> = props => {
-  const _space = spaceUtils(props);
-  const _align = boxAlignUtils(props);
-  const _border = borderUtils(props);
-  const _size = boxSizeUtils(props);
-  const _flex = boxFlexUtils(props);
+const Box: React.SFC<IInjectedProps & IProps> = ({
+  theme,
+  m,
+  mb,
+  mt,
+  mr,
+  ml,
+  my,
+  mx,
+  p,
+  pb,
+  py,
+  pt,
+  pr,
+  pl,
+  px,
+
+  center,
+  border,
+
+  f,
+  h,
+  w,
+
+  align,
+  justify,
+  dir,
+
+  bg,
+
+  rows,
+  children,
+
+  style: customStyle,
+  ...rest
+}) => {
+  const _space = spaceUtils({
+    m,
+    mb,
+    mt,
+    mr,
+    ml,
+    my,
+    mx,
+    p,
+    pb,
+    py,
+    pt,
+    pr,
+    pl,
+    px,
+    theme,
+  });
+  const _align = boxAlignUtils({ center });
+  const _border = borderUtils({ border, theme });
+  const _size = boxSizeUtils({ w, h });
+  const _flex = boxFlexUtils({ align, justify, dir, f });
 
   const _style: {
     backgroundColor?: string;
   } = {};
 
-  const themeColor = get(props, ['theme', 'color']);
-
-  const bg = get(props, 'bg');
+  const themeColor = get(theme, 'color');
 
   if (bg) {
     const color = themeColor[bg];
@@ -76,7 +126,7 @@ const Box: React.SFC<IInjectedProps & IProps> = props => {
     }
   }
 
-  const newChild = boxRowsUtils(props);
+  const newChild = boxRowsUtils({ rows, children });
 
   const style = StyleSheet.create({
     box: {
@@ -86,11 +136,15 @@ const Box: React.SFC<IInjectedProps & IProps> = props => {
       ..._border,
       ..._size,
       ..._flex,
-      ...props.style,
+      ...customStyle,
     },
   });
 
-  return <View style={style.box}>{newChild}</View>;
+  return (
+    <View {...rest} style={style.box}>
+      {newChild}
+    </View>
+  );
 };
 
 Box.defaultProps = {

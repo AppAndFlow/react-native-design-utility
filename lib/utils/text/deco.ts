@@ -1,6 +1,11 @@
 import get from 'lodash.get';
+import { TextDecoType } from '../../types/TextDeco';
 
-export const decoUtils = (props: any) => {
+interface IProps {
+  deco?: TextDecoType;
+}
+
+export const decoUtils = (props: IProps) => {
   const _style: {
     textDecorationLine?:
       | 'none'
