@@ -47,8 +47,8 @@ const color = {
 export const theme = {
   text: {
     size: {
-      xs: 14,
-      sm: 16,
+      sm: 14,
+      base: 16,
       md: 18,
       lg: 20,
       xl: 24,
@@ -63,6 +63,13 @@ export const theme = {
       normal: 1,
       wide: 1.5,
     },
+    lineHeight: {
+      none: 1,
+      tight: 1.25,
+      normal: 1.5,
+      large: 2,
+    },
+    font: null,
   },
   color,
   space: {

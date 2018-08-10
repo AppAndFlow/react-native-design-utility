@@ -9,8 +9,8 @@ export interface ITheme {
   color: { [key: string]: string };
   text: {
     size: {
-      xs: number;
       sm: number;
+      base: number;
       md: number;
       lg: number;
       xl: number;
@@ -24,6 +24,13 @@ export interface ITheme {
       tight: number;
       normal: number;
       wide: number;
+    };
+    font: null | string;
+    lineHeight: {
+      none: number;
+      tight: number;
+      normal: number;
+      large: number;
     };
   };
   borders: Array<{

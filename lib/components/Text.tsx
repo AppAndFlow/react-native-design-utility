@@ -15,6 +15,8 @@ import { LetterSpacingType } from '../types/LetterSpacing';
 import { borderUtils } from '../utils/border';
 import { TextAlignType } from '../types/TextAlign';
 import { textManipulationUtils } from '../utils/text/manipulation';
+import { fontStyleUtils } from '../utils/text/fontStyle';
+import { lineHeightUtils } from '../utils/text/lineHeight';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -24,6 +26,10 @@ type Props = {
   style: any;
 
   border?: number;
+
+  italic?: boolean;
+
+  lineH: 'none' | 'tight' | 'normal' | 'large';
 
   align: TextAlignType;
 
@@ -58,8 +64,12 @@ const Text: React.SFC<IInjectedProps & Props> = props => {
   const _align = textAlignUtils(props);
   const _spacing = letterSpacingUtils(props);
   const _border = borderUtils(props);
+  const _fontStyle = fontStyleUtils(props);
+  const _lineHeight = lineHeightUtils(props, _size.fontSize);
 
   const child = textManipulationUtils(props);
+
+  const fontFamily = props.theme.text.font || undefined;
 
   const style = StyleSheet.create({
     text: {
@@ -70,6 +80,9 @@ const Text: React.SFC<IInjectedProps & Props> = props => {
       ..._align,
       ..._spacing,
       ..._border,
+      ..._fontStyle,
+      ..._lineHeight,
+      fontFamily,
       ...props.style,
     },
   });

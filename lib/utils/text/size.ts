@@ -1,17 +1,29 @@
+import get from 'lodash.get';
+
 export const textSizeUtils = (props: any) => {
   const _style: {
     fontSize?: number;
   } = {};
 
-  if (props.size) {
-    if (typeof props.size === 'string') {
-      const size = props.theme.text.size[props.size];
+  const themeSize = get(props, ['theme', 'text', 'size']);
 
-      if (size) {
+  if (themeSize) {
+    const base = get(themeSize, 'base');
+
+    _style.fontSize = base;
+
+    const size = get(props, 'size');
+
+    if (size) {
+      if (typeof size === 'string') {
+        const _size = themeSize[size];
+
+        if (typeof _size === 'number') {
+          _style.fontSize = _size;
+        }
+      } else if (typeof size === 'number') {
         _style.fontSize = size;
       }
-    } else if (typeof props.size === 'number') {
-      _style.fontSize = props.size;
     }
   }
 

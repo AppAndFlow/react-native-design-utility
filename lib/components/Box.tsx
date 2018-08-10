@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet, FlexAlignType } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import get from 'lodash.get';
 
 import WrappedComponent from './WrappedComponent';
@@ -9,7 +9,6 @@ import { SpaceType } from '../types/Space';
 import { boxAlignUtils } from '../utils/box/align';
 import { borderUtils } from '../utils/border';
 import { boxSizeUtils } from '../utils/box/size';
-import { FlexDirectionType, JustifyContentType } from '../types/Flex';
 import { boxFlexUtils } from '../utils/box/flex';
 import { boxRowsUtils } from '../utils/box/rows';
 
@@ -32,9 +31,9 @@ export interface IProps {
 
   border?: number;
 
-  dir?: FlexDirectionType;
-  align?: FlexAlignType;
-  justify?: JustifyContentType;
+  dir?: 'col' | 'col-reverse' | 'row' | 'row-revers';
+  align?: 'center' | 'start' | 'end' | 'stretch' | 'baseline';
+  justify?: 'between' | 'around' | 'evenly' | 'start' | 'center' | 'end';
 
   m?: SpaceType;
   mb?: SpaceType;
