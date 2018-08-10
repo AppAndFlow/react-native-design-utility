@@ -17,21 +17,24 @@ import { TextAlignType } from '../types/TextAlign';
 import { textManipulationUtils } from '../utils/text/manipulation';
 import { fontStyleUtils } from '../utils/text/fontStyle';
 import { lineHeightUtils } from '../utils/text/lineHeight';
+import { decoUtils } from '../utils/text/deco';
 
 export interface IInjectedProps {
   theme: ITheme;
 }
 
 type Props = {
-  style: any;
+  style?: any;
 
   border?: number;
 
   italic?: boolean;
 
-  lineH: 'none' | 'tight' | 'normal' | 'large';
+  lineH?: 'none' | 'tight' | 'normal' | 'large';
 
-  align: TextAlignType;
+  deco?: 'underline' | 'none' | 'through' | 'underline-through';
+
+  align?: TextAlignType;
 
   m?: SpaceType;
   mb?: SpaceType;
@@ -66,6 +69,7 @@ const Text: React.SFC<IInjectedProps & Props> = props => {
   const _border = borderUtils(props);
   const _fontStyle = fontStyleUtils(props);
   const _lineHeight = lineHeightUtils(props, _size.fontSize);
+  const _deco = decoUtils(props);
 
   const child = textManipulationUtils(props);
 
@@ -82,6 +86,7 @@ const Text: React.SFC<IInjectedProps & Props> = props => {
       ..._border,
       ..._fontStyle,
       ..._lineHeight,
+      ..._deco,
       fontFamily,
       ...props.style,
     },

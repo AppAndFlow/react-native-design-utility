@@ -91,7 +91,7 @@ class MyComponent extends Component {
             </Text>
           </Box>
           <Box bg="red">
-            <Text size="xl" bold uppercase>
+            <Text size="xl" deco="underline" bold uppercase>
               boom
             </Text>
           </Box>
@@ -142,34 +142,35 @@ class MyComponent extends Component {
 
 ### Text
 
-| Props          | Value                              | Description                                   |
-| -------------- | ---------------------------------- | --------------------------------------------- |
-| m              | xs, sm, md, lg, xl or any number   | margin                                        |
-| mt             | xs, sm, md, lg, xl or any number   | marginTop                                     |
-| mb             | xs, sm, md, lg, xl or any number   | marginBottom                                  |
-| mr             | xs, sm, md, lg, xl or any number   | marginRight                                   |
-| ml             | xs, sm, md, lg, xl or any number   | marginLeft                                    |
-| my             | xs, sm, md, lg, xl or any number   | marginVertical                                |
-| mx             | xs, sm, md, lg, xl or any number   | marginHorizontal                              |
-| p              | xs, sm, md, lg, xl or any number   | padding                                       |
-| pt             | xs, sm, md, lg, xl or any number   | paddingTop                                    |
-| pb             | xs, sm, md, lg, xl or any number   | paddingBottom                                 |
-| pr             | xs, sm, md, lg, xl or any number   | paddingRight                                  |
-| pl             | xs, sm, md, lg, xl or any number   | paddingLeft                                   |
-| py             | xs, sm, md, lg, xl or any number   | paddingVertical                               |
-| px             | xs, sm, md, lg, xl or any number   | paddingHorizontal                             |
-| center         | boolean                            | text-align center                             |
-| left           | boolean                            | text-align left                               |
-| right          | boolean                            | text-align right                              |
-| border         | number                             | give border at index                          |
-| color          | string                             | color                                         |
-| size           | sm, base, md, lg, xl or any number | fontSize, default is base                     |
-| weight         | light, normal, bold                | fontWeight                                    |
-| ls             | tight, normal, wide                | letter-spacing                                |
-| uppercase      | boolean                            | uppercase all letters                         |
-| lowercase      | boolean                            | lowercase all letters                         |
-| capitalize     | boolean                            | capitalize only first letter of first word    |
-| capitalizeEach | boolean                            | capitalize each first letter of every word    |
-| thousand       | boolean                            | add a comma to a number when more than 3 zero |
-| italic         | boolean                            | fontStyle italic                              |
-| style          | stylesheet                         | any other style                               |
+| Props          | Value                                       | Description                                   |
+| -------------- | ------------------------------------------- | --------------------------------------------- |
+| m              | xs, sm, md, lg, xl or any number            | margin                                        |
+| mt             | xs, sm, md, lg, xl or any number            | marginTop                                     |
+| mb             | xs, sm, md, lg, xl or any number            | marginBottom                                  |
+| mr             | xs, sm, md, lg, xl or any number            | marginRight                                   |
+| ml             | xs, sm, md, lg, xl or any number            | marginLeft                                    |
+| my             | xs, sm, md, lg, xl or any number            | marginVertical                                |
+| mx             | xs, sm, md, lg, xl or any number            | marginHorizontal                              |
+| p              | xs, sm, md, lg, xl or any number            | padding                                       |
+| pt             | xs, sm, md, lg, xl or any number            | paddingTop                                    |
+| pb             | xs, sm, md, lg, xl or any number            | paddingBottom                                 |
+| pr             | xs, sm, md, lg, xl or any number            | paddingRight                                  |
+| pl             | xs, sm, md, lg, xl or any number            | paddingLeft                                   |
+| py             | xs, sm, md, lg, xl or any number            | paddingVertical                               |
+| px             | xs, sm, md, lg, xl or any number            | paddingHorizontal                             |
+| center         | boolean                                     | text-align center                             |
+| left           | boolean                                     | text-align left                               |
+| right          | boolean                                     | text-align right                              |
+| border         | number                                      | give border at index                          |
+| color          | string                                      | color                                         |
+| size           | sm, base, md, lg, xl or any number          | fontSize, default is base                     |
+| weight         | light, normal, bold                         | fontWeight                                    |
+| ls             | tight, normal, wide                         | letter-spacing                                |
+| uppercase      | boolean                                     | uppercase all letters                         |
+| lowercase      | boolean                                     | lowercase all letters                         |
+| capitalize     | boolean                                     | capitalize only first letter of first word    |
+| capitalizeEach | boolean                                     | capitalize each first letter of every word    |
+| thousand       | boolean                                     | add a comma to a number when more than 3 zero |
+| italic         | boolean                                     | fontStyle italic                              |
+| deco           | underline, none, through, underline-through | textDecorationLine                            |
+| style          | stylesheet                                  | any other style                               |

@@ -17,7 +17,7 @@ export interface IInjectedProps {
 }
 
 export interface IProps {
-  style: any;
+  style?: any;
 
   bg?: string;
 
