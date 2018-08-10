@@ -1,9 +1,15 @@
+import get from 'lodash.get';
+
 export const borderUtils = (props: any) => {
   let _style = {};
 
-  if (props.border) {
-    if (props.theme.borders[props.border]) {
-      _style = props.theme.borders[props.border];
+  const border = get(props, 'border');
+
+  if (border) {
+    const themeBorders = get(props, ['theme', 'borders']);
+
+    if (themeBorders[border]) {
+      _style = themeBorders[border];
     }
   }
 

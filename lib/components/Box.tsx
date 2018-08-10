@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, FlexAlignType } from 'react-native';
 
 import WrappedComponent from './WrappedComponent';
 import { spaceUtils } from '../utils/space';
@@ -7,6 +7,9 @@ import { ITheme } from '../types/ITheme';
 import { SpaceType } from '../types/Space';
 import { boxAlignUtils } from '../utils/box/align';
 import { borderUtils } from '../utils/border';
+import { boxSizeUtils } from '../utils/box/size';
+import { FlexDirectionType, JustifyContentType } from '../types/Flex';
+import { boxFlexUtils } from '../utils/box/flex';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -23,7 +26,13 @@ export interface IProps {
 
   w?: number | string;
 
+  f?: number;
+
   border?: number;
+
+  dir?: FlexDirectionType;
+  align?: FlexAlignType;
+  justify?: JustifyContentType;
 
   m?: SpaceType;
   mb?: SpaceType;
@@ -40,17 +49,19 @@ export interface IProps {
   pl?: SpaceType;
   px?: SpaceType;
   py?: SpaceType;
+
+  rows?: number[];
 }
 
 const Box: React.SFC<IInjectedProps & IProps> = props => {
   const _space = spaceUtils(props);
   const _align = boxAlignUtils(props);
   const _border = borderUtils(props);
+  const _size = boxSizeUtils(props);
+  const _flex = boxFlexUtils(props);
 
   const _style: {
     backgroundColor?: string;
-    height?: string | number;
-    width?: string | number;
   } = {};
 
   if (props.bg) {
@@ -60,29 +71,13 @@ const Box: React.SFC<IInjectedProps & IProps> = props => {
     }
   }
 
-  if (props.h) {
-    if (typeof props.h === 'string') {
-      _style.height = props.h;
-    } else if (typeof props.h === 'number') {
-      if (props.h <= 1) {
-        _style.height = `${props.h * 100}%`;
-      } else {
-        _style.height = props.h;
-      }
-    }
-  }
+  // if (props.rows) {
+  //   const childs = React.Children.map(props.children, (child, index) =>
+  //     React.cloneElement(child[index], {
 
-  if (props.w) {
-    if (typeof props.w === 'string') {
-      _style.width = props.w;
-    } else if (typeof props.w === 'number') {
-      if (props.w <= 1) {
-        _style.width = `${props.w * 100}%`;
-      } else {
-        _style.width = props.w;
-      }
-    }
-  }
+  //     }),
+  //   );
+  // }
 
   const style = StyleSheet.create({
     box: {
@@ -90,6 +85,8 @@ const Box: React.SFC<IInjectedProps & IProps> = props => {
       ..._space,
       ..._align,
       ..._border,
+      ..._size,
+      ..._flex,
       ...props.style,
     },
   });

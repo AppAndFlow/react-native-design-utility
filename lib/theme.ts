@@ -60,7 +60,7 @@ export const theme = {
     },
     spacing: {
       tight: 0.8,
-      normal: 0,
+      normal: 1,
       wide: 1.5,
     },
   },

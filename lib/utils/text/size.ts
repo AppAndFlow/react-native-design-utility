@@ -1,4 +1,4 @@
-export const sizeUtils = (props: any) => {
+export const textSizeUtils = (props: any) => {
   const _style: {
     fontSize?: number;
   } = {};

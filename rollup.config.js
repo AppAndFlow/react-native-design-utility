@@ -9,7 +9,7 @@ import builtins from 'rollup-plugin-node-builtins';
 import pkg from './package.json';
 
 const shared = {
-  input: `compiled/index.js`,
+  input: 'compiled/index.js',
   external: ['react', 'react-native'],
 };
 
@@ -39,7 +39,7 @@ export default [
         ),
       }),
       commonjs({
-        include: /node_modules/,
+        include: 'node_modules/**',
       }),
       sourceMaps(),
       process.env.NODE_ENV === 'production' && filesize(),
@@ -61,12 +61,12 @@ export default [
     external: shared.external.concat(Object.keys(pkg.dependencies)),
     output: [
       {
-        file: 'dist/ReactNativeDesignUtility.es6.js',
+        file: pkg.module,
         format: 'es',
         sourcemap: true,
       },
       {
-        file: 'dist/ReactNativeDesignUtility.js',
+        file: pkg.main,
         format: 'cjs',
         sourcemap: true,
       },
@@ -82,14 +82,14 @@ export default [
     input: 'lib/init.ts',
     output: {
       format: 'cjs',
-      file: 'dist/init.js'
+      file: 'dist/init.js',
     },
   },
   {
     input: 'lib/theme.ts',
     output: {
       format: 'es',
-      file: 'dist/theme.js'
+      file: 'dist/theme.js',
     },
   },
 ];

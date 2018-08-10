@@ -1,32 +1,32 @@
+import get from 'lodash.get';
+
 export const weightUtils = (props: any) => {
   const _style: {
     fontWeight?: string;
   } = {};
 
+  const lightWeight = get(props, ['theme', 'text', 'weight', 'light']);
+  const normalWeight = get(props, ['theme', 'text', 'weight', 'normal']);
+  const boldWeight = get(props, ['theme', 'text', 'weight', 'bold']);
+
   _style.fontWeight = props.theme.text.weight.normal;
 
-  if (props.light) {
-    const weight = props.theme.text.weight.light;
+  const light = get(props, 'light');
 
-    if (weight) {
-      _style.fontWeight = weight;
-    }
+  if (light && lightWeight) {
+    _style.fontWeight = lightWeight;
   }
 
-  if (props.normal) {
-    const weight = props.theme.text.weight.normal;
+  const normal = get(props, 'normal');
 
-    if (weight) {
-      _style.fontWeight = weight;
-    }
+  if (normal && normalWeight) {
+    _style.fontWeight = normalWeight;
   }
 
-  if (props.bold) {
-    const weight = props.theme.text.weight.bold;
+  const bold = get(props, 'bold');
 
-    if (weight) {
-      _style.fontWeight = weight;
-    }
+  if (bold && boldWeight) {
+    _style.fontWeight = boldWeight;
   }
 
   return _style;

@@ -1,13 +1,19 @@
+import get from 'lodash.get';
+
 export const colorUtils = (props: any) => {
   const _style: {
     color?: string;
   } = {};
 
-  if (props.color) {
-    const color = props.theme.color[props.color];
+  const themeColor = get(props, ['theme', 'color']);
 
-    if (color) {
-      _style.color = color;
+  const color = get(props, 'color');
+
+  if (color && themeColor) {
+    const _color = themeColor[color];
+
+    if (_color) {
+      _style.color = _color;
     }
   }
 

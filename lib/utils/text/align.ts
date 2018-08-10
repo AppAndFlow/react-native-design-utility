@@ -1,17 +1,25 @@
+import get from 'lodash.get';
+
 export const textAlignUtils = (props: any) => {
   const _style: {
     textAlign?: string;
   } = {};
 
-  if (props.center) {
+  const center = get(props, 'center');
+
+  if (center) {
     _style.textAlign = 'center';
   }
 
-  if (props.left) {
+  const left = get(props, 'left');
+
+  if (left) {
     _style.textAlign = 'left';
   }
 
-  if (props.right) {
+  const right = get(props, 'right');
+
+  if (right) {
     _style.textAlign = 'right';
   }
 

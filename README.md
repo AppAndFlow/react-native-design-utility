@@ -1,6 +1,6 @@
 ## react-native-design-utlity [Still in development]
 
-I've been using [Tailwind](https://github.com/tailwindcss/tailwindcss) lately for the web. Loved it, but I didn't find any solution like this for react-native. So I build one who look like it but more for react-native design styling.
+I've been using [Tailwind](https://github.com/tailwindcss/tailwindcss) lately for the web. Loved it, but I didn't find any solution like this for react-native. So I build one who look like it but more for react-native design styling. I've add some text utility like `capitalize`, `capitalizeEach`, `thousand` etc.
 
 ## Installation
 
@@ -62,7 +62,7 @@ class MyComponent extends Component {
     return (
       <Box>
         <Box w="20%" bg="red" p="sm" mb="lg">
-          <Text border={1} size="lg" color="blueDarker" center bold>
+          <Text border={1} size="lg" color="blueDarker" center bold capitalizeEach>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo,
             officiis quae deserunt exercitationem beatae nam atque nesciunt.
             Dolore animi eum magni doloremque velit culpa accusamus
@@ -73,9 +73,17 @@ class MyComponent extends Component {
           <Text size="xl" bold>
             Hello
           </Text>
+          <Text size="xl" bold thousand>
+            $5000
+          </Text>
         </Box>
         <Box border={2} center h={200} w={1 / 2} bg="red">
-          <Box h={1 / 3} w={1 / 2} bg="blue" />
+          <Box h={1 / 3} w={1 / 2} bg="blue" f={1} />
+          <Box h={1 / 3} w={1 / 2} bg="green" />
+        </Box>
+        <Box border={2} align="end" justify="center" h={200} w={1} bg="red">
+          <Box bg="blue" f={1} />
+          <Box bg="green" f={2} />
         </Box>
       </Box>
     )
@@ -85,53 +93,62 @@ class MyComponent extends Component {
 
 ### Box
 
-| Props  | Value                            | Description              |
-| ------ | -------------------------------- | ------------------------ |
-| m      | xs, sm, md, lg, xl or any number | margin                   |
-| mt     | xs, sm, md, lg, xl or any number | marginTop                |
-| mb     | xs, sm, md, lg, xl or any number | marginBottom             |
-| mr     | xs, sm, md, lg, xl or any number | marginRight              |
-| ml     | xs, sm, md, lg, xl or any number | marginLeft               |
-| my     | xs, sm, md, lg, xl or any number | marginVertical           |
-| mx     | xs, sm, md, lg, xl or any number | marginHorizontal         |
-| p      | xs, sm, md, lg, xl or any number | padding                  |
-| pt     | xs, sm, md, lg, xl or any number | paddingTop               |
-| pb     | xs, sm, md, lg, xl or any number | paddingBottom            |
-| pr     | xs, sm, md, lg, xl or any number | paddingRight             |
-| pl     | xs, sm, md, lg, xl or any number | paddingLeft              |
-| py     | xs, sm, md, lg, xl or any number | paddingVertical          |
-| px     | xs, sm, md, lg, xl or any number | paddingHorizontal        |
-| center | boolean                          | center element with flex |
-| border | number                           | give border at index     |
-| h      | number, fraction or string       | height                   |
-| w      | number, fraction or string       | width                    |
-| bg     | string                           | backgroundColor          |
-| style  | stylesheet                       | any other style          |
+| Props   | Value                                       | Description              |
+| ------- | ------------------------------------------- | ------------------------ |
+| m       | xs, sm, md, lg, xl or any number            | margin                   |
+| mt      | xs, sm, md, lg, xl or any number            | marginTop                |
+| mb      | xs, sm, md, lg, xl or any number            | marginBottom             |
+| mr      | xs, sm, md, lg, xl or any number            | marginRight              |
+| ml      | xs, sm, md, lg, xl or any number            | marginLeft               |
+| my      | xs, sm, md, lg, xl or any number            | marginVertical           |
+| mx      | xs, sm, md, lg, xl or any number            | marginHorizontal         |
+| p       | xs, sm, md, lg, xl or any number            | padding                  |
+| pt      | xs, sm, md, lg, xl or any number            | paddingTop               |
+| pb      | xs, sm, md, lg, xl or any number            | paddingBottom            |
+| pr      | xs, sm, md, lg, xl or any number            | paddingRight             |
+| pl      | xs, sm, md, lg, xl or any number            | paddingLeft              |
+| py      | xs, sm, md, lg, xl or any number            | paddingVertical          |
+| px      | xs, sm, md, lg, xl or any number            | paddingHorizontal        |
+| center  | boolean                                     | center element with flex |
+| border  | number                                      | give border at index     |
+| h       | number, fraction or string                  | height                   |
+| w       | number, fraction or string                  | width                    |
+| bg      | string                                      | backgroundColor          |
+| dir     | col, col-reverse, row, row-reverse          | flexDirection            |
+| align   | start, end, center, stretch, baseline       | alignItems               |
+| justify | start, end, center, between, around, evenly | justifyContent           |
+| f       | number                                      | flex value               |
+| style   | stylesheet                                  | any other style          |
 
 ### Text
 
-| Props  | Value                            | Description          |
-| ------ | -------------------------------- | -------------------- |
-| m      | xs, sm, md, lg, xl or any number | margin               |
-| mt     | xs, sm, md, lg, xl or any number | marginTop            |
-| mb     | xs, sm, md, lg, xl or any number | marginBottom         |
-| mr     | xs, sm, md, lg, xl or any number | marginRight          |
-| ml     | xs, sm, md, lg, xl or any number | marginLeft           |
-| my     | xs, sm, md, lg, xl or any number | marginVertical       |
-| mx     | xs, sm, md, lg, xl or any number | marginHorizontal     |
-| p      | xs, sm, md, lg, xl or any number | padding              |
-| pt     | xs, sm, md, lg, xl or any number | paddingTop           |
-| pb     | xs, sm, md, lg, xl or any number | paddingBottom        |
-| pr     | xs, sm, md, lg, xl or any number | paddingRight         |
-| pl     | xs, sm, md, lg, xl or any number | paddingLeft          |
-| py     | xs, sm, md, lg, xl or any number | paddingVertical      |
-| px     | xs, sm, md, lg, xl or any number | paddingHorizontal    |
-| center | boolean                          | text-align center    |
-| left   | boolean                          | text-align left      |
-| right  | boolean                          | text-align right     |
-| border | number                           | give border at index |
-| color  | string                           | color                |
-| size   | xs, sm, md, lg, xl or any number | fontSize             |
-| weight | light, normal, bold              | fontWeight           |
-| ls     | tight, normal, wide              | letter-spacing       |
-| style  | stylesheet                       | any other style      |
+| Props          | Value                            | Description                                   |
+| -------------- | -------------------------------- | --------------------------------------------- |
+| m              | xs, sm, md, lg, xl or any number | margin                                        |
+| mt             | xs, sm, md, lg, xl or any number | marginTop                                     |
+| mb             | xs, sm, md, lg, xl or any number | marginBottom                                  |
+| mr             | xs, sm, md, lg, xl or any number | marginRight                                   |
+| ml             | xs, sm, md, lg, xl or any number | marginLeft                                    |
+| my             | xs, sm, md, lg, xl or any number | marginVertical                                |
+| mx             | xs, sm, md, lg, xl or any number | marginHorizontal                              |
+| p              | xs, sm, md, lg, xl or any number | padding                                       |
+| pt             | xs, sm, md, lg, xl or any number | paddingTop                                    |
+| pb             | xs, sm, md, lg, xl or any number | paddingBottom                                 |
+| pr             | xs, sm, md, lg, xl or any number | paddingRight                                  |
+| pl             | xs, sm, md, lg, xl or any number | paddingLeft                                   |
+| py             | xs, sm, md, lg, xl or any number | paddingVertical                               |
+| px             | xs, sm, md, lg, xl or any number | paddingHorizontal                             |
+| center         | boolean                          | text-align center                             |
+| left           | boolean                          | text-align left                               |
+| right          | boolean                          | text-align right                              |
+| border         | number                           | give border at index                          |
+| color          | string                           | color                                         |
+| size           | xs, sm, md, lg, xl or any number | fontSize                                      |
+| weight         | light, normal, bold              | fontWeight                                    |
+| ls             | tight, normal, wide              | letter-spacing                                |
+| uppercase      | boolean                          | uppercase all letters                         |
+| lowercase      | boolean                          | lowercase all letters                         |
+| capitalize     | boolean                          | capitalize only first letter of first word    |
+| capitalizeEach | boolean                          | capitalize each first letter of every word    |
+| thousand       | boolean                          | add a comma to a number when more than 3 zero |
+| style          | stylesheet                       | any other style                               |

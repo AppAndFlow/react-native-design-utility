@@ -1,187 +1,221 @@
+import get from 'lodash.get';
+
 export const spaceUtils = (props: any) => {
-  const _style = {
-    marginBottom: undefined,
-    marginTop: undefined,
-    marginHorizontal: undefined,
-    marginVertical: undefined,
-    marginRight: undefined,
-    marginLeft: undefined,
-    margin: undefined,
+  const _style: {
+    marginBottom?: number;
+    marginTop?: number;
+    marginHorizontal?: number;
+    marginVertical?: number;
+    marginRight?: number;
+    marginLeft?: number;
+    margin?: number;
 
-    padding: undefined,
-    paddingBottom: undefined,
-    paddingTop: undefined,
-    paddingHorizontal: undefined,
-    paddingVertical: undefined,
-    paddingRight: undefined,
-    paddingLeft: undefined,
-  };
+    padding?: number;
+    paddingBottom?: number;
+    paddingTop?: number;
+    paddingHorizontal?: number;
+    paddingVertical?: number;
+    paddingRight?: number;
+    paddingLeft?: number;
+  } = {};
 
-  if (props.mb) {
-    if (typeof props.mb === 'string') {
-      const space = props.theme.space[props.mb];
+  const themeSpace = get(props, ['theme', 'space']);
 
-      if (space) {
-        _style.marginBottom = space;
+  if (themeSpace) {
+    const mb = get(props, 'mb');
+
+    if (mb) {
+      if (typeof mb === 'string') {
+        const space = themeSpace[mb];
+
+        if (space) {
+          _style.marginBottom = space;
+        }
+      } else if (typeof mb === 'number') {
+        _style.marginBottom = mb;
       }
-    } else if (typeof props.mb === 'number') {
-      _style.marginBottom = props.mb;
     }
-  }
 
-  if (props.mt) {
-    if (typeof props.mt === 'string') {
-      const space = props.theme.space[props.mt];
+    const mt = get(props, 'mt');
 
-      if (space) {
-        _style.marginTop = space;
+    if (mt) {
+      if (typeof mt === 'string') {
+        const space = themeSpace[mt];
+
+        if (space) {
+          _style.marginTop = space;
+        }
+      } else if (typeof mt === 'number') {
+        _style.marginTop = mt;
       }
-    } else if (typeof props.mt === 'number') {
-      _style.marginTop = props.mt;
     }
-  }
 
-  if (props.mr) {
-    if (typeof props.mr === 'string') {
-      const space = props.theme.space[props.mr];
+    const mr = get(props, 'mr');
 
-      if (space) {
-        _style.marginRight = space;
+    if (mr) {
+      if (typeof mr === 'string') {
+        const space = themeSpace[mr];
+
+        if (space) {
+          _style.marginRight = space;
+        }
+      } else if (typeof mr === 'number') {
+        _style.marginRight = mr;
       }
-    } else if (typeof props.mr === 'number') {
-      _style.marginRight = props.mr;
     }
-  }
 
-  if (props.ml) {
-    if (typeof props.ml === 'string') {
-      const space = props.theme.space[props.ml];
+    const ml = get(props, 'ml');
 
-      if (space) {
-        _style.marginLeft = space;
+    if (ml) {
+      if (typeof ml === 'string') {
+        const space = themeSpace[ml];
+
+        if (space) {
+          _style.marginLeft = space;
+        }
+      } else if (typeof ml === 'number') {
+        _style.marginLeft = ml;
       }
-    } else if (typeof props.ml === 'number') {
-      _style.marginLeft = props.ml;
     }
-  }
 
-  if (props.my) {
-    if (typeof props.my === 'string') {
-      const space = props.theme.space[props.my];
+    const my = get(props, 'my');
 
-      if (space) {
-        _style.marginVertical = space;
+    if (my) {
+      if (typeof my === 'string') {
+        const space = themeSpace[my];
+
+        if (space) {
+          _style.marginVertical = space;
+        }
+      } else if (typeof my === 'number') {
+        _style.marginVertical = my;
       }
-    } else if (typeof props.my === 'number') {
-      _style.marginVertical = props.my;
     }
-  }
 
-  if (props.mx) {
-    if (typeof props.mx === 'string') {
-      const space = props.theme.space[props.mx];
+    const mx = get(props, 'mx');
 
-      if (space) {
-        _style.marginHorizontal = space;
+    if (mx) {
+      if (typeof mx === 'string') {
+        const space = themeSpace[mx];
+
+        if (space) {
+          _style.marginHorizontal = space;
+        }
+      } else if (typeof mx === 'number') {
+        _style.marginHorizontal = mx;
       }
-    } else if (typeof props.mx === 'number') {
-      _style.marginHorizontal = props.mx;
     }
-  }
 
-  if (props.m) {
-    if (typeof props.m === 'string') {
-      const space = props.theme.space[props.m];
+    const m = get(props, 'm');
 
-      if (space) {
-        _style.margin = space;
+    if (m) {
+      if (typeof m === 'string') {
+        const space = themeSpace[m];
+
+        if (space) {
+          _style.margin = space;
+        }
+      } else if (typeof m === 'number') {
+        _style.margin = m;
       }
-    } else if (typeof props.m === 'number') {
-      _style.margin = props.m;
     }
-  }
 
-  if (props.pb) {
-    if (typeof props.pb === 'string') {
-      const space = props.theme.space[props.pb];
+    const pb = get(props, 'pb');
 
-      if (space) {
-        _style.paddingBottom = space;
+    if (pb) {
+      if (typeof pb === 'string') {
+        const space = themeSpace[pb];
+
+        if (space) {
+          _style.paddingBottom = space;
+        }
+      } else if (typeof pb === 'number') {
+        _style.paddingBottom = pb;
       }
-    } else if (typeof props.pb === 'number') {
-      _style.paddingBottom = props.pb;
     }
-  }
 
-  if (props.pt) {
-    if (typeof props.pt === 'string') {
-      const space = props.theme.space[props.pt];
+    const pt = get(props, 'pt');
 
-      if (space) {
-        _style.paddingTop = space;
+    if (pt) {
+      if (typeof pt === 'string') {
+        const space = themeSpace[pt];
+
+        if (space) {
+          _style.paddingTop = space;
+        }
+      } else if (typeof pt === 'number') {
+        _style.paddingTop = pt;
       }
-    } else if (typeof props.pt === 'number') {
-      _style.paddingTop = props.pt;
     }
-  }
 
-  if (props.pr) {
-    if (typeof props.pr === 'string') {
-      const space = props.theme.space[props.pr];
+    const pr = get(props, 'pr');
 
-      if (space) {
-        _style.paddingRight = space;
+    if (pr) {
+      if (typeof pr === 'string') {
+        const space = themeSpace[pr];
+
+        if (space) {
+          _style.paddingRight = space;
+        }
+      } else if (typeof pr === 'number') {
+        _style.paddingRight = pr;
       }
-    } else if (typeof props.pr === 'number') {
-      _style.paddingRight = props.pr;
     }
-  }
 
-  if (props.pl) {
-    if (typeof props.pl === 'string') {
-      const space = props.theme.space[props.pl];
+    const pl = get(props, 'pl');
 
-      if (space) {
-        _style.paddingLeft = space;
+    if (pl) {
+      if (typeof pl === 'string') {
+        const space = themeSpace[pl];
+
+        if (space) {
+          _style.paddingLeft = space;
+        }
+      } else if (typeof pl === 'number') {
+        _style.paddingLeft = pl;
       }
-    } else if (typeof props.pl === 'number') {
-      _style.paddingLeft = props.pl;
     }
-  }
 
-  if (props.py) {
-    if (typeof props.py === 'string') {
-      const space = props.theme.space[props.py];
+    const py = get(props, 'py');
 
-      if (space) {
-        _style.paddingVertical = space;
+    if (py) {
+      if (typeof py === 'string') {
+        const space = themeSpace[py];
+
+        if (space) {
+          _style.paddingVertical = space;
+        }
+      } else if (typeof py === 'number') {
+        _style.paddingVertical = props.my;
       }
-    } else if (typeof props.py === 'number') {
-      _style.paddingVertical = props.my;
     }
-  }
 
-  if (props.px) {
-    if (typeof props.px === 'string') {
-      const space = props.theme.space[props.px];
+    const px = get(props, 'px');
 
-      if (space) {
-        _style.paddingHorizontal = space;
+    if (px) {
+      if (typeof px === 'string') {
+        const space = themeSpace[px];
+
+        if (space) {
+          _style.paddingHorizontal = space;
+        }
+      } else if (typeof px === 'number') {
+        _style.paddingHorizontal = px;
       }
-    } else if (typeof props.px === 'number') {
-      _style.paddingHorizontal = props.px;
     }
-  }
 
-  if (props.p) {
-    if (typeof props.p === 'string') {
-      const space = props.theme.space[props.p];
+    const p = get(props, 'p');
 
-      if (space) {
-        _style.padding = space;
+    if (p) {
+      if (typeof p === 'string') {
+        const space = themeSpace[p];
+
+        if (space) {
+          _style.padding = space;
+        }
+      } else if (typeof p === 'number') {
+        _style.padding = p;
       }
-    } else if (typeof props.p === 'number') {
-      _style.padding = props.p;
     }
   }
 

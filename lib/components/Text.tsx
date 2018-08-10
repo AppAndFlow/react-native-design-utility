@@ -3,7 +3,7 @@ import { Text as RnText, StyleSheet } from 'react-native';
 
 import WrappedComponent from './WrappedComponent';
 import { spaceUtils } from '../utils/space';
-import { sizeUtils } from '../utils/text/size';
+import { textSizeUtils } from '../utils/text/size';
 import { weightUtils } from '../utils/text/weight';
 import { colorUtils } from '../utils/text/color';
 import { textAlignUtils } from '../utils/text/align';
@@ -14,6 +14,7 @@ import { letterSpacingUtils } from '../utils/text/letterSpacing';
 import { LetterSpacingType } from '../types/LetterSpacing';
 import { borderUtils } from '../utils/border';
 import { TextAlignType } from '../types/TextAlign';
+import { textManipulationUtils } from '../utils/text/manipulation';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -44,16 +45,21 @@ type Props = {
 
   ls?: LetterSpacingType;
   size?: FontSizeType;
+
+  uppercase?: boolean;
+  lowercase?: boolean;
 };
 
 const Text: React.SFC<IInjectedProps & Props> = props => {
   const _space = spaceUtils(props);
-  const _size = sizeUtils(props);
+  const _size = textSizeUtils(props);
   const _weight = weightUtils(props);
   const _color = colorUtils(props);
   const _align = textAlignUtils(props);
   const _spacing = letterSpacingUtils(props);
   const _border = borderUtils(props);
+
+  const child = textManipulationUtils(props);
 
   const style = StyleSheet.create({
     text: {
@@ -68,7 +74,7 @@ const Text: React.SFC<IInjectedProps & Props> = props => {
     },
   });
 
-  return <RnText style={style.text}>{props.children}</RnText>;
+  return <RnText style={style.text}>{child}</RnText>;
 };
 
 Text.defaultProps = {
