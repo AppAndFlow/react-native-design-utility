@@ -12,6 +12,9 @@ import { boxSizeUtils } from '../utils/box/size';
 import { boxFlexUtils } from '../utils/box/flex';
 import { boxRowsUtils } from '../utils/box/rows';
 import { DirType, AlignType, JustifyType } from '../types/Flex';
+import { radiusUtils } from '../utils/box/radius';
+import { RadiusType } from '../types/Radius';
+import { shadowUtils } from '../utils/box/shadow';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -31,6 +34,11 @@ export interface IProps {
   f?: number;
 
   border?: number;
+  shadow?: number;
+
+  radius?: RadiusType;
+  circle?: number;
+  avatar?: boolean;
 
   dir?: DirType;
   align?: AlignType;
@@ -72,8 +80,13 @@ const Box: React.SFC<IInjectedProps & IProps> = ({
   pl,
   px,
 
+  radius,
+  avatar,
+  circle,
+
   center,
   border,
+  shadow,
 
   f,
   h,
@@ -110,8 +123,17 @@ const Box: React.SFC<IInjectedProps & IProps> = ({
   });
   const _align = boxAlignUtils({ center });
   const _border = borderUtils({ border, theme });
+  const _shadow = shadowUtils({ shadow, theme });
   const _size = boxSizeUtils({ w, h });
   const _flex = boxFlexUtils({ align, justify, dir, f });
+  const _radius = radiusUtils({
+    theme,
+    radius,
+    circle,
+    avatar,
+    children,
+    size: { height: h, width: w },
+  });
 
   const _style: {
     backgroundColor?: string;
@@ -126,7 +148,13 @@ const Box: React.SFC<IInjectedProps & IProps> = ({
     }
   }
 
-  const newChild = boxRowsUtils({ rows, children });
+  let newChild;
+
+  if (avatar) {
+    newChild = _radius.children;
+  } else {
+    newChild = boxRowsUtils({ rows, children });
+  }
 
   const style = StyleSheet.create({
     box: {
@@ -134,8 +162,10 @@ const Box: React.SFC<IInjectedProps & IProps> = ({
       ..._space,
       ..._align,
       ..._border,
+      ..._shadow,
       ..._size,
       ..._flex,
+      ..._radius.style,
       ...customStyle,
     },
   });

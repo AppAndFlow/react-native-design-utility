@@ -79,6 +79,33 @@ export const theme = {
     lg: 36,
     xl: 40,
   },
+  radius: {
+    xs: 6,
+    sm: 10,
+    base: 14,
+    lg: 20,
+    xl: 30,
+  },
+  shadows: [
+    {
+      shadowColor: color.black,
+      shadowOffset: {
+        width: 0,
+        height: 0,
+      },
+      shadowOpacity: 1,
+      shadowRadius: 1,
+    },
+    {
+      shadowColor: color.black,
+      shadowOffset: {
+        width: 0,
+        height: 0,
+      },
+      shadowOpacity: 0.6,
+      shadowRadius: 5,
+    },
+  ],
   borders: [
     {
       borderWidth: 1,
