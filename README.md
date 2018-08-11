@@ -200,3 +200,10 @@ Example
 | italic         | boolean                                     | fontStyle italic                              |
 | deco           | underline, none, through, underline-through | textDecorationLine                            |
 | style          | stylesheet                                  | any other style                               |
+
+## TODO
+
+- [ ] Add alignSelf to box
+- [ ] Add hitslop utility to box
+- [ ] Update Readme with better example and better docs
+- [ ] Create clone app for show how to use this lib
