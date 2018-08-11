@@ -26,13 +26,15 @@ class App extends Component {
 
 ## Custom Theme
 
-For initialize the theme you can run. This will come with some basic space etc. Also this library provide lot of custom color coming from [Material color ](https://www.materialpalette.com/colors)
-
-This will look like this [one here](https://github.com/EQuimper/react-native-design-utility/blob/master/lib/theme.ts)
+For initialize the theme you can run.
 
 ```
 node ./node_modules/react-native-design-utility/dist/init.js
 ```
+
+This will come with some basic space etc. Also this library provide lot of custom color coming from [Material color ](https://www.materialpalette.com/colors)
+
+You can take a look of the basic theme provide [here](https://github.com/EQuimper/react-native-design-utility/blob/master/lib/theme.ts)
 
 Add the theme to the provider as a props
 

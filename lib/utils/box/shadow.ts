@@ -12,7 +12,7 @@ export const shadowUtils = (props: IProps) => {
 
   const shadow = get(props, 'shadow');
 
-  if (shadow) {
+  if (typeof shadow === 'number') {
     const themeShadows = get(props, ['theme', 'shadows']);
 
     const _shadow = themeShadows[shadow];
