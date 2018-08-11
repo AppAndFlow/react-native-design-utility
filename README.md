@@ -102,7 +102,7 @@ class MyComponent extends Component {
           <Box h={1 / 3} w={1 / 2} bg="blue" f={1} />
           <Box h={1 / 3} w={1 / 2} bg="green" />
         </Box>
-        <Box circle={100} radius="rounded" avatar shadow="1" bg="black" mb="sm">
+        <Box circle={100} avatar shadow="1" bg="black" mb="sm">
           <Image
             source={{
               uri:
