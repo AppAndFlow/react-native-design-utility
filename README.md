@@ -165,7 +165,7 @@ export const theme = {
 };
 ```
 
-As you can see this give you a good amount of basic style, size and other stuff.
+As you can see this give you a good amount of basic style, size and other stuff. The space object is the one use for both the margin and the padding.
 
 ## Custom Theme
 
@@ -274,6 +274,8 @@ Example
 ```js
 <Box size="xl" style={{ borderBottomLeftRadius: 1 }} />
 ```
+
+---
 
 ## Some Example
 
@@ -385,6 +387,114 @@ export default class App extends React.Component {
 Result:
 
 ![](docs/img/flexRowsWithDiffSize.png)
+
+### Text Manipulation utilty
+
+##### center
+
+```js
+export default class App extends React.Component {
+  render() {
+    return (
+      <UtilityThemeProvider theme={theme}>
+        <Box f={1} center>
+          <Box bg="white" p="sm" w="90%" shadow={0}>
+            <Text center>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consequuntur corrupti voluptatibus dolor molestias cumque
+              veritatis quibusdam. Molestiae labore harum dignissimos ad numquam
+              minus quo sequi in. Voluptatum aspernatur ut molestias!
+            </Text>
+          </Box>
+        </Box>
+      </UtilityThemeProvider>
+    );
+  }
+}
+```
+
+Result:
+
+![](docs/img/textCenter.png)
+
+##### capitalizeEach
+
+```js
+export default class App extends React.Component {
+  render() {
+    return (
+      <UtilityThemeProvider theme={theme}>
+        <Box f={1} center>
+          <Box bg="white" p="sm" w="90%" shadow={0}>
+            <Text center capitalizeEach>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consequuntur corrupti voluptatibus dolor molestias cumque
+              veritatis quibusdam. Molestiae labore harum dignissimos ad numquam
+              minus quo sequi in. Voluptatum aspernatur ut molestias!
+            </Text>
+          </Box>
+        </Box>
+      </UtilityThemeProvider>
+    );
+  }
+}
+```
+
+Result
+
+![](docs/img/textCapitalizeEach.png)
+
+##### capitalize
+
+```js
+export default class App extends React.Component {
+  render() {
+    return (
+      <UtilityThemeProvider theme={theme}>
+        <Box f={1} center>
+          <Box bg="white" p="sm" w="90%" shadow={0}>
+            <Text center capitalize>
+              hello world
+            </Text>
+          </Box>
+        </Box>
+      </UtilityThemeProvider>
+    );
+  }
+}
+```
+
+Result:
+
+![](docs/img/textCapitalize.png)
+
+##### thousand
+
+```js
+export default class App extends React.Component {
+  render() {
+    return (
+      <UtilityThemeProvider theme={theme}>
+        <Box f={1} center>
+          <Box bg="white" p="sm" w="90%" shadow={0}>
+            <Text center thousand>
+              $1000000
+            </Text>
+          </Box>
+        </Box>
+      </UtilityThemeProvider>
+    );
+  }
+}
+```
+
+Result:
+
+![](docs/img/textThousand.png)
+
+---
+
+## Components
 
 ### Box
 
