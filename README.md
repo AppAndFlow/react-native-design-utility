@@ -2,13 +2,15 @@
 
 I've been using [Tailwind](https://github.com/tailwindcss/tailwindcss) lately for the web. Loved it, but I didn't find any solution like this for react-native. So I build one who look like it but more for react-native design styling. I've add some text utility like `capitalize`, `capitalizeEach`, `thousand` etc. You pass props and this is pass to the StyleSheet, so this will not affect the perfomance.
 
+When I take a look back on my old project, lot of the time, because importing everytime my constants and metrics file become painful, I make use of hardcoded value. As you know this is not the best way to make an app easier to maintain. If value need to be change all this place where I did that need to ne update manually. All my margin and padding size was the bigger one. Now here just by providing the name as a props I make sure they all follow. No import nothing just like if you install a design framework etc. But now you create your own 😊. Don't worry, all props here have **fallback** you don't want to use a value for your margin right you can just do `mr={20}` this will add 20 for the marginRight style. You don't see what you need here. You can make use of the style props and add customStyle.
+
 ## Goal of this library
 
-The first goal of this library it's add kind of a design-system yo your app. This will be more easier in the long run to manage all your styling. This will make sure your app is consistent all around. All your margin padding value are the same etc.
+The first goal of this library it's add kind of a design-system yo your app. This will be more easier in the long run to manage all your styling. This will make sure your app is consistent all around. All your margin padding value are the same etc. Also this will remove lot of typing. I feel it easier to wrote design cause, I can do this right inside my View component and not jumping around my style object. If you like inline style this is will be the same. So when you start working in your app the first thing to do would be to generate the theme "see custom style for this" and update it with the value provided by your designer or those see in the sketch, photoshop file.
 
 **Why not use constants file and import it ?**
 
-Here you don't even need that, I make use of the context api and the two component provide receive the theme as a props. So no more 100 files with import color etc. You pass the props and the component do the rest.
+Here you don't even need that, I make use of the context api and the two component provided receive the theme as a props. So no more 100 files with import color etc. You pass the props and the component do the rest.
 
 ## Installation
 
@@ -85,14 +87,14 @@ export const theme = {
   text: {
     size: {
       sm: 14,
-      base: 16,
+      base: 16, // this will be the default if no size provided
       md: 18,
       lg: 20,
       xl: 24,
     },
     weight: {
       light: '200',
-      normal: '400',
+      normal: '400', // this will be the default if no weight provided
       bold: '700',
     },
     spacing: {
@@ -119,7 +121,7 @@ export const theme = {
   radius: {
     xs: 6,
     sm: 10,
-    base: 14,
+    base: 14, // this will be the default if no radius provided
     lg: 20,
     xl: 30,
   },
@@ -164,6 +166,8 @@ export const theme = {
   },
 };
 ```
+
+**Color can be any string**
 
 As you can see this give you a good amount of basic style, size and other stuff. The space object is the one use for both the margin and the padding.
 
