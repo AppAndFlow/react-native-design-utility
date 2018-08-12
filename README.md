@@ -2,6 +2,14 @@
 
 I've been using [Tailwind](https://github.com/tailwindcss/tailwindcss) lately for the web. Loved it, but I didn't find any solution like this for react-native. So I build one who look like it but more for react-native design styling. I've add some text utility like `capitalize`, `capitalizeEach`, `thousand` etc. You pass props and this is pass to the StyleSheet, so this will not affect the perfomance.
 
+## Goal of this library
+
+The first goal of this library it's add kind of a design-system yo your app. This will be more easier in the long run to manage all your styling. This will make sure your app is consistent all around. All your margin padding value are the same etc.
+
+**Why not use constants file and import it ?**
+
+Here you don't even need that, I make use of the context api and the two component provide receive the theme as a props. So no more 100 files with import color etc. You pass the props and the component do the rest.
+
 ## Installation
 
 ```
@@ -23,6 +31,141 @@ class App extends Component {
   }
 }
 ```
+
+By default the theme is this.
+
+```js
+const color = {
+  black: '#212121',
+
+  greyDarkest: '#24242',
+  greyDarker: '#616161',
+  greyDark: '#757575',
+  grey: '#9e9e9e',
+  greyLight: '#bdbdbd',
+  greyLighter: '#e0e0e0',
+  greyLightest: '#eeeeee',
+
+  white: '#fff',
+
+  redDarkest: '#b71c1c',
+  redDarker: '#c62828',
+  redDark: '#d32f2f',
+  red: '#f44336',
+  redLight: '#ef5350',
+  redLighter: '#e57373',
+  redLightest: '#ef9a9a',
+
+  blueDarkest: '#0d47a1',
+  blueDarker: '#1565c0',
+  blueDark: '#1976d2',
+  blue: '#2196f3',
+  blueLight: '#42a5f5',
+  blueLighter: '#64b5f6',
+  blueLightest: '#90caf9',
+
+  purpleDarkest: '#4a148c',
+  purpleDarker: '#6a1b9a',
+  purpleDark: '#7b1fa2',
+  purple: '#9c27b0',
+  purpleLight: '#ab47bc',
+  purpleLighter: '#ba68c8',
+  purpleLightest: '#ce93d8',
+
+  greenDarkest: '#1b5e20',
+  greenDarker: '#2e7d32',
+  greenDark: '#388e3c',
+  green: '#4caf50',
+  greenLight: '#66bb6a',
+  greenLighter: '#81c784',
+  greenLightest: '#a5d6a7',
+};
+
+export const theme = {
+  text: {
+    size: {
+      sm: 14,
+      base: 16,
+      md: 18,
+      lg: 20,
+      xl: 24,
+    },
+    weight: {
+      light: '200',
+      normal: '400',
+      bold: '700',
+    },
+    spacing: {
+      tight: 0.8,
+      normal: 1,
+      wide: 1.5,
+    },
+    lineHeight: {
+      none: 1,
+      tight: 1.25,
+      normal: 1.5,
+      large: 2,
+    },
+    font: null,
+  },
+  color,
+  space: {
+    xs: 8,
+    sm: 16,
+    md: 24,
+    lg: 36,
+    xl: 40,
+  },
+  radius: {
+    xs: 6,
+    sm: 10,
+    base: 14,
+    lg: 20,
+    xl: 30,
+  },
+  shadows: [
+    {
+      shadowColor: color.black,
+      shadowOffset: {
+        width: 0,
+        height: 0,
+      },
+      shadowOpacity: 1,
+      shadowRadius: 1,
+    },
+    {
+      shadowColor: color.black,
+      shadowOffset: {
+        width: 0,
+        height: 0,
+      },
+      shadowOpacity: 0.6,
+      shadowRadius: 5,
+    },
+  ],
+  borders: [
+    {
+      borderWidth: 1,
+      borderColor: color.black,
+    },
+    {
+      borderWidth: 2,
+      borderColor: color.black,
+    },
+    {
+      borderWidth: 5,
+      borderColor: color.black,
+    },
+  ],
+  button: {
+    disabled: {
+      opacity: 0.5,
+    },
+  },
+};
+```
+
+As you can see this give you a good amount of basic style, size and other stuff.
 
 ## Custom Theme
 
@@ -131,6 +274,117 @@ Example
 ```js
 <Box size="xl" style={{ borderBottomLeftRadius: 1 }} />
 ```
+
+## Some Example
+
+### Circle and Avatar utility
+
+You want to have a simple avatar in your app. So you pass an Image to the box but now you want it to be round etc. With the Box component you can do this way
+
+```js
+export default class App extends React.Component {
+  render() {
+    return (
+      <UtilityThemeProvider theme={theme}>
+        <Box f={1} center>
+          <Box avatar circle={100} shadow={1}>
+            <Image source={{ uri: avatarUrl }} />
+          </Box>
+        </Box>
+      </UtilityThemeProvider>
+    );
+  }
+}
+```
+
+Here you pass the props avatar to let know the box this will have an Image type component as a children. After this you can put circle with a number who is the value of the height and the width of the view. This is will be pass down to the child
+
+Result:
+
+![](docs/img/roundedAvatar.png)
+
+### Flex rows utlity
+
+A box can receive a rows props. This one can be an array of number. This will provided flex to his children depend of the indexof inside the array.
+
+Example here we pass an array of only 1. This way each child receive it. If indexof is not find 1 is provided so that's why you can do this way here.
+
+```js
+export default class App extends React.Component {
+  render() {
+    return (
+      <UtilityThemeProvider theme={theme}>
+        <Box f={1} center>
+          <Box
+            shadow={0}
+            bg="white"
+            w="95%"
+            h={200}
+            dir="row"
+            rows={[1]}
+            align="center"
+          >
+            <Box center>
+              <Text size="lg">Element 1</Text>
+            </Box>
+            <Box center>
+              <Text thousand size="lg">
+                $5000
+              </Text>
+            </Box>
+            <Box center>
+              <Text capitalize size="lg">
+                element 3
+              </Text>
+            </Box>
+          </Box>
+        </Box>
+      </UtilityThemeProvider>
+    );
+  }
+}
+```
+
+Result:
+
+![](docs/img/flexRows.png)
+
+Another example if you provide `rows={[1, 2]}` this will give you this kind of behavior
+
+```js
+export default class App extends React.Component {
+  render() {
+    return (
+      <UtilityThemeProvider theme={theme}>
+        <Box f={1} center>
+          <Box
+            shadow={0}
+            bg="white"
+            w="95%"
+            h={200}
+            dir="row"
+            rows={[1, 2]}
+            align="center"
+          >
+            <Box bg="purple" center>
+              <Text size="lg">Element 1</Text>
+            </Box>
+            <Box bg="red" center>
+              <Text thousand size="lg">
+                $5000
+              </Text>
+            </Box>
+          </Box>
+        </Box>
+      </UtilityThemeProvider>
+    );
+  }
+}
+```
+
+Result:
+
+![](docs/img/flexRowsWithDiffSize.png)
 
 ### Box
 
