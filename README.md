@@ -82,7 +82,7 @@ class MyComponent extends Component {
           rows={[1, 2, 1]}
           dir="row"
         >
-          <Box bg="redDarker">
+          <Box bg="redDarker" self="center">
             <Text size="xl" bold capitalize>
               hello
             </Text>
@@ -159,6 +159,7 @@ Example
 | dir     | col, col-reverse, row, row-reverse          | flexDirection                                                                      |
 | align   | start, end, center, stretch, baseline       | alignItems                                                                         |
 | justify | start, end, center, between, around, evenly | justifyContent                                                                     |
+| self    | start, end, center, auto, stretch, baseline | alignSelf                                                                          |
 | f       | number                                      | flex value                                                                         |
 | rows    | array of number                             | add flex value to child Box at indexof, default 1 if not provide                   |
 | circle  | number                                      | create a circle with the size provided                                             |

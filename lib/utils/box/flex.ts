@@ -7,6 +7,8 @@ import {
   DirType,
   AlignType,
   JustifyType,
+  AlignSelfType,
+  SelfType,
 } from '../../types/Flex';
 
 interface IProps {
@@ -14,6 +16,7 @@ interface IProps {
   dir?: DirType;
   align?: AlignType;
   justify?: JustifyType;
+  self?: SelfType;
 }
 
 export const boxFlexUtils = (props: IProps) => {
@@ -21,6 +24,7 @@ export const boxFlexUtils = (props: IProps) => {
     flexDirection?: FlexDirectionType;
     alignItems?: FlexAlignType;
     justifyContent?: JustifyContentType;
+    alignSelf?: AlignSelfType;
     flex?: number;
   } = {};
 
@@ -73,6 +77,24 @@ export const boxFlexUtils = (props: IProps) => {
       _style.justifyContent = 'space-around';
     } else if (justify === 'evenly') {
       _style.justifyContent = 'space-evenly';
+    }
+  }
+
+  const self = get(props, 'self');
+
+  if (self) {
+    if (self === 'center') {
+      _style.alignSelf = 'center';
+    } else if (self === 'start') {
+      _style.alignSelf = 'flex-start';
+    } else if (self === 'end') {
+      _style.alignSelf = 'flex-end';
+    } else if (self === 'stretch') {
+      _style.alignSelf = 'stretch';
+    } else if (self === 'auto') {
+      _style.alignSelf = 'auto';
+    } else if (self === 'baseline') {
+      _style.alignSelf = 'baseline';
     }
   }
 

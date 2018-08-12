@@ -11,7 +11,7 @@ import { borderUtils } from '../utils/border';
 import { boxSizeUtils } from '../utils/box/size';
 import { boxFlexUtils } from '../utils/box/flex';
 import { boxRowsUtils } from '../utils/box/rows';
-import { DirType, AlignType, JustifyType } from '../types/Flex';
+import { DirType, AlignType, JustifyType, SelfType } from '../types/Flex';
 import { radiusUtils } from '../utils/box/radius';
 import { RadiusType } from '../types/Radius';
 import { shadowUtils } from '../utils/box/shadow';
@@ -43,6 +43,7 @@ export interface IProps {
   dir?: DirType;
   align?: AlignType;
   justify?: JustifyType;
+  self?: SelfType;
 
   m?: SpaceType;
   mb?: SpaceType;
@@ -94,6 +95,7 @@ const Box: React.SFC<IInjectedProps & IProps> = ({
 
   align,
   justify,
+  self,
   dir,
 
   bg,
@@ -125,7 +127,7 @@ const Box: React.SFC<IInjectedProps & IProps> = ({
   const _border = borderUtils({ border, theme });
   const _shadow = shadowUtils({ shadow, theme });
   const _size = boxSizeUtils({ w, h });
-  const _flex = boxFlexUtils({ align, justify, dir, f });
+  const _flex = boxFlexUtils({ align, justify, dir, f, self });
   const _radius = radiusUtils({
     theme,
     radius,

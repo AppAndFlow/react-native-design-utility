@@ -23,3 +23,19 @@ export type JustifyType =
   | 'start'
   | 'center'
   | 'end';
+
+export type AlignSelfType =
+  | 'auto'
+  | 'flex-start'
+  | 'flex-end'
+  | 'center'
+  | 'stretch'
+  | 'baseline';
+
+export type SelfType =
+  | 'auto'
+  | 'start'
+  | 'end'
+  | 'center'
+  | 'stretch'
+  | 'baseline';
