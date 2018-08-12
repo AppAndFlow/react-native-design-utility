@@ -204,7 +204,7 @@ Example
 
 ## TODO
 
-- [ ] Add alignSelf to box
+- [x] Add alignSelf to box
 - [ ] Add hitslop utility to box
 - [ ] Update Readme with better example and better docs
 - [ ] Create clone app for show how to use this lib
