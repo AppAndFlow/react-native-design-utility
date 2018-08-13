@@ -1,6 +1,6 @@
 {
   "name": "react-native-design-utility",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": "react-native utility library for ui",
   "main": "dist/ReactNativeDesignUtility.js",
   "module": "dist/ReactNativeDesignUtility.es6.js",
@@ -33,6 +33,7 @@
     "@types/react": "^16.4.8",
     "@types/react-native": "^0.56.6",
     "@types/react-test-renderer": "^16.0.2",
+    "babel-core": "^6.26.3",
     "babel-jest": "^23.4.2",
     "babel-preset-react-native": "^4.0.0",
     "cross-env": "^5.2.0",

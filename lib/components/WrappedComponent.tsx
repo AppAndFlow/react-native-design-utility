@@ -8,20 +8,19 @@ export interface IProps {
 }
 
 function getDisplayName(wrappedComponent: React.ComponentType<IProps>) {
-  return wrappedComponent.displayName || wrappedComponent.name || 'Component';
+  return `Utility(${wrappedComponent.displayName})` || `Utility(${wrappedComponent.name})` || 'Component';
 }
 
-const WrappedComponent = (Cp: React.ComponentType<IProps>) => {
-  return class extends React.Component {
-    static displayName = `HOC(${getDisplayName(Cp)})`;
-    render() {
-      return (
-        <UtilityThemeContext.Consumer>
-          {val => <Cp theme={val} {...this.props} />}
-        </UtilityThemeContext.Consumer>
-      );
-    }
-  };
-};
+function connect<OuterProps>(Cp: React.ComponentType<OuterProps & IProps>) {
+  const C: React.SFC<OuterProps> = (props: OuterProps) => (
+    <UtilityThemeContext.Consumer>
+      {val => <Cp theme={val} {...props} />}
+    </UtilityThemeContext.Consumer>
+  );
 
-export default WrappedComponent;
+  C.displayName = getDisplayName(Cp);
+
+  return C;
+}
+
+export default connect;

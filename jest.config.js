@@ -1,9 +1,12 @@
 module.exports = {
   preset: 'react-native',
-  transform: { '.(ts|tsx)': '<rootDir>/node_modules/ts-jest/preprocessor.js' },
-  transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$'],
+  transform: {
+    '^.+\\.jsx?$': '<rootDir>/node_modules/babel-jest',
+    '^.+\\.tsx?$': 'ts-jest',
+  },
+  transformIgnorePatterns: ['<rootDir>/node_modules/'],
   testMatch: ['<rootDir>/test/**/?(*.)(spec|test).ts?(x)'],
-  moduleFileExtensions: ['ts', 'tsx'],
+  moduleFileExtensions: ['ts', 'tsx', 'json', 'node'],
   testURL: 'http://localhost',
   globals: {
     'ts-jest': {

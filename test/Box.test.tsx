@@ -1,4 +1,5 @@
-import React from 'react';
+import 'react-native';
+import * as React from 'react';
 import renderer from 'react-test-renderer';
 
 import Box from '../lib/components/Box';
