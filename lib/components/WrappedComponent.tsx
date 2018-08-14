@@ -8,19 +8,25 @@ export interface IProps {
 }
 
 function getDisplayName(wrappedComponent: React.ComponentType<IProps>) {
-  return `Utility(${wrappedComponent.displayName})` || `Utility(${wrappedComponent.name})` || 'Component';
+  return (
+    `Utility(${wrappedComponent.displayName})` ||
+    `Utility(${wrappedComponent.name})` ||
+    'Component'
+  );
 }
 
 function connect<OuterProps>(Cp: React.ComponentType<OuterProps & IProps>) {
-  const C: React.SFC<OuterProps> = (props: OuterProps) => (
-    <UtilityThemeContext.Consumer>
-      {val => <Cp theme={val} {...props} />}
-    </UtilityThemeContext.Consumer>
-  );
+  return class extends React.PureComponent<OuterProps> {
+    static displayName = getDisplayName(Cp);
 
-  C.displayName = getDisplayName(Cp);
-
-  return C;
+    render() {
+      return (
+        <UtilityThemeContext.Consumer>
+          {val => <Cp theme={val} {...this.props} />}
+        </UtilityThemeContext.Consumer>
+      );
+    }
+  };
 }
 
 export default connect;
