@@ -20,7 +20,7 @@ export interface IInjectedProps {
   theme: ITheme;
 }
 
-export interface IProps {
+export interface UtilityBoxProps {
   style?: any;
 
   bg?: string;
@@ -64,7 +64,7 @@ export interface IProps {
   rows?: number[];
 }
 
-const Box: React.SFC<IInjectedProps & IProps> = ({
+const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
   theme,
   m,
   mb,

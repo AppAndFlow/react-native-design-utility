@@ -1,5 +1,5 @@
-import Box from './components/Box';
-import Text from './components/Text';
+import Box, { UtilityBoxProps } from './components/Box';
+import Text, { UtilityTextProps } from './components/Text';
 import { UtilityThemeProvider } from './Provider';
 
-export { Box, UtilityThemeProvider, Text };
+export { Box, UtilityThemeProvider, Text, UtilityBoxProps, UtilityTextProps };

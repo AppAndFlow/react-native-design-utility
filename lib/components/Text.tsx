@@ -25,7 +25,7 @@ export interface IInjectedProps {
   theme: ITheme;
 }
 
-type Props = {
+export interface UtilityTextProps {
   style?: any;
 
   border?: number;
@@ -70,9 +70,9 @@ type Props = {
   bold?: boolean;
   light?: boolean;
   normal?: boolean;
-};
+}
 
-const Text: React.SFC<IInjectedProps & Props> = ({
+const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
   theme,
   border,
   color,

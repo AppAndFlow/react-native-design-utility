@@ -281,6 +281,20 @@ Example
 
 ---
 
+## Import the type
+
+You can import the type for both component and extends your interface or type if you want.
+
+```js
+import { UtilityBoxProps, UtilityTextProps } from 'react-native-design-utility';
+
+interface IProps extends UtilityBoxProps {}
+
+const MyCp = (props: IProps) => (
+  ...whatever here
+)
+```
+
 ## Some Example
 
 ### Circle and Avatar utility
