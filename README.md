@@ -87,14 +87,14 @@ export const theme = {
   text: {
     size: {
       sm: 14,
-      base: 16, // this will be the default if no size provided
+      base: 16,
       md: 18,
       lg: 20,
       xl: 24,
     },
     weight: {
       light: '200',
-      normal: '400', // this will be the default if no weight provided
+      normal: '400',
       bold: '700',
     },
     spacing: {
@@ -121,9 +121,16 @@ export const theme = {
   radius: {
     xs: 6,
     sm: 10,
-    base: 14, // this will be the default if no radius provided
+    base: 14,
     lg: 20,
     xl: 30,
+  },
+  opacity: {
+    none: 0,
+    low: 0.3,
+    demi: 0.5,
+    high: 0.8,
+    base: 1,
   },
   shadows: [
     {
@@ -516,73 +523,76 @@ Result:
 
 ### Box
 
-| Props   | Value                                       | Description                                                                        |
-| ------- | ------------------------------------------- | ---------------------------------------------------------------------------------- |
-| m       | xs, sm, md, lg, xl or any number            | margin                                                                             |
-| mt      | xs, sm, md, lg, xl or any number            | marginTop                                                                          |
-| mb      | xs, sm, md, lg, xl or any number            | marginBottom                                                                       |
-| mr      | xs, sm, md, lg, xl or any number            | marginRight                                                                        |
-| ml      | xs, sm, md, lg, xl or any number            | marginLeft                                                                         |
-| my      | xs, sm, md, lg, xl or any number            | marginVertical                                                                     |
-| mx      | xs, sm, md, lg, xl or any number            | marginHorizontal                                                                   |
-| p       | xs, sm, md, lg, xl or any number            | padding                                                                            |
-| pt      | xs, sm, md, lg, xl or any number            | paddingTop                                                                         |
-| pb      | xs, sm, md, lg, xl or any number            | paddingBottom                                                                      |
-| pr      | xs, sm, md, lg, xl or any number            | paddingRight                                                                       |
-| pl      | xs, sm, md, lg, xl or any number            | paddingLeft                                                                        |
-| py      | xs, sm, md, lg, xl or any number            | paddingVertical                                                                    |
-| px      | xs, sm, md, lg, xl or any number            | paddingHorizontal                                                                  |
-| center  | boolean                                     | center element with flex                                                           |
-| border  | number                                      | give border at index                                                               |
-| shadow  | number                                      | give shadow at index                                                               |
-| h       | number, fraction or string                  | height                                                                             |
-| w       | number, fraction or string                  | width                                                                              |
-| bg      | string                                      | backgroundColor                                                                    |
-| dir     | col, col-reverse, row, row-reverse          | flexDirection                                                                      |
-| align   | start, end, center, stretch, baseline       | alignItems                                                                         |
-| justify | start, end, center, between, around, evenly | justifyContent                                                                     |
-| self    | start, end, center, auto, stretch, baseline | alignSelf                                                                          |
-| f       | number                                      | flex value                                                                         |
-| rows    | array of number                             | add flex value to child Box at indexof, default 1 if not provide                   |
-| circle  | number                                      | create a circle with the size provided                                             |
-| avatar  | boolean                                     | if child is one Image will put this one in circle, must provided circle props also |
-| radius  | xs, sm, base, lg, xl, number, boolean       | borderRadius, if true default is base                                              |
-| style   | stylesheet                                  | any other style                                                                    |
+| Props   | Value                                                 | Description                                                                        |
+| ------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| m       | xs, sm, md, lg, xl or any number                      | margin                                                                             |
+| mt      | xs, sm, md, lg, xl or any number                      | marginTop                                                                          |
+| mb      | xs, sm, md, lg, xl or any number                      | marginBottom                                                                       |
+| mr      | xs, sm, md, lg, xl or any number                      | marginRight                                                                        |
+| ml      | xs, sm, md, lg, xl or any number                      | marginLeft                                                                         |
+| my      | xs, sm, md, lg, xl or any number                      | marginVertical                                                                     |
+| mx      | xs, sm, md, lg, xl or any number                      | marginHorizontal                                                                   |
+| p       | xs, sm, md, lg, xl or any number                      | padding                                                                            |
+| pt      | xs, sm, md, lg, xl or any number                      | paddingTop                                                                         |
+| pb      | xs, sm, md, lg, xl or any number                      | paddingBottom                                                                      |
+| pr      | xs, sm, md, lg, xl or any number                      | paddingRight                                                                       |
+| pl      | xs, sm, md, lg, xl or any number                      | paddingLeft                                                                        |
+| py      | xs, sm, md, lg, xl or any number                      | paddingVertical                                                                    |
+| px      | xs, sm, md, lg, xl or any number                      | paddingHorizontal                                                                  |
+| center  | boolean                                               | center element with flex                                                           |
+| border  | number                                                | give border at index                                                               |
+| shadow  | number                                                | give shadow at index                                                               |
+| h       | number, fraction or string                            | height                                                                             |
+| w       | number, fraction or string                            | width                                                                              |
+| bg      | string                                                | backgroundColor                                                                    |
+| o       | none, low, demi, high, base, any string or any number | opacity                                                                            |
+| dir     | col, col-reverse, row, row-reverse                    | flexDirection                                                                      |
+| align   | start, end, center, stretch, baseline                 | alignItems                                                                         |
+| justify | start, end, center, between, around, evenly           | justifyContent                                                                     |
+| self    | start, end, center, auto, stretch, baseline           | alignSelf                                                                          |
+| f       | number                                                | flex value                                                                         |
+| rows    | array of number                                       | add flex value to child Box at indexof, default 1 if not provide                   |
+| circle  | number                                                | create a circle with the size provided                                             |
+| avatar  | boolean                                               | if child is one Image will put this one in circle, must provided circle props also |
+| radius  | xs, sm, base, lg, xl, number, boolean                 | borderRadius, if true default is base                                              |
+| style   | stylesheet                                            | any other style                                                                    |
 
 ### Text
 
-| Props          | Value                                       | Description                                   |
-| -------------- | ------------------------------------------- | --------------------------------------------- |
-| m              | xs, sm, md, lg, xl or any number            | margin                                        |
-| mt             | xs, sm, md, lg, xl or any number            | marginTop                                     |
-| mb             | xs, sm, md, lg, xl or any number            | marginBottom                                  |
-| mr             | xs, sm, md, lg, xl or any number            | marginRight                                   |
-| ml             | xs, sm, md, lg, xl or any number            | marginLeft                                    |
-| my             | xs, sm, md, lg, xl or any number            | marginVertical                                |
-| mx             | xs, sm, md, lg, xl or any number            | marginHorizontal                              |
-| p              | xs, sm, md, lg, xl or any number            | padding                                       |
-| pt             | xs, sm, md, lg, xl or any number            | paddingTop                                    |
-| pb             | xs, sm, md, lg, xl or any number            | paddingBottom                                 |
-| pr             | xs, sm, md, lg, xl or any number            | paddingRight                                  |
-| pl             | xs, sm, md, lg, xl or any number            | paddingLeft                                   |
-| py             | xs, sm, md, lg, xl or any number            | paddingVertical                               |
-| px             | xs, sm, md, lg, xl or any number            | paddingHorizontal                             |
-| center         | boolean                                     | text-align center                             |
-| left           | boolean                                     | text-align left                               |
-| right          | boolean                                     | text-align right                              |
-| border         | number                                      | give border at index                          |
-| color          | string                                      | color                                         |
-| size           | sm, base, md, lg, xl or any number          | fontSize, default is base                     |
-| weight         | light, normal, bold                         | fontWeight                                    |
-| ls             | tight, normal, wide                         | letter-spacing                                |
-| uppercase      | boolean                                     | uppercase all letters                         |
-| lowercase      | boolean                                     | lowercase all letters                         |
-| capitalize     | boolean                                     | capitalize only first letter of first word    |
-| capitalizeEach | boolean                                     | capitalize each first letter of every word    |
-| thousand       | boolean                                     | add a comma to a number when more than 3 zero |
-| italic         | boolean                                     | fontStyle italic                              |
-| deco           | underline, none, through, underline-through | textDecorationLine                            |
-| style          | stylesheet                                  | any other style                               |
+| Props          | Value                                                 | Description                                   |
+| -------------- | ----------------------------------------------------- | --------------------------------------------- |
+| m              | xs, sm, md, lg, xl or any number                      | margin                                        |
+| mt             | xs, sm, md, lg, xl or any number                      | marginTop                                     |
+| mb             | xs, sm, md, lg, xl or any number                      | marginBottom                                  |
+| mr             | xs, sm, md, lg, xl or any number                      | marginRight                                   |
+| ml             | xs, sm, md, lg, xl or any number                      | marginLeft                                    |
+| my             | xs, sm, md, lg, xl or any number                      | marginVertical                                |
+| mx             | xs, sm, md, lg, xl or any number                      | marginHorizontal                              |
+| p              | xs, sm, md, lg, xl or any number                      | padding                                       |
+| pt             | xs, sm, md, lg, xl or any number                      | paddingTop                                    |
+| pb             | xs, sm, md, lg, xl or any number                      | paddingBottom                                 |
+| pr             | xs, sm, md, lg, xl or any number                      | paddingRight                                  |
+| pl             | xs, sm, md, lg, xl or any number                      | paddingLeft                                   |
+| py             | xs, sm, md, lg, xl or any number                      | paddingVertical                               |
+| px             | xs, sm, md, lg, xl or any number                      | paddingHorizontal                             |
+| center         | boolean                                               | text-align center                             |
+| left           | boolean                                               | text-align left                               |
+| right          | boolean                                               | text-align right                              |
+| border         | number                                                | give border at index                          |
+| color          | string                                                | color                                         |
+| size           | sm, base, md, lg, xl, any string or any number        | fontSize, default is base                     |
+| weight         | light, normal, bold                                   | fontWeight                                    |
+| lineH          | none, tight, normal, large, any number or any string  | lineHeight                                    |
+| ls             | tight, normal, wide, any string or any number         | letter-spacing                                |
+| o              | none, low, demi, high, base, any string or any number | opacity                                       |
+| uppercase      | boolean                                               | uppercase all letters                         |
+| lowercase      | boolean                                               | lowercase all letters                         |
+| capitalize     | boolean                                               | capitalize only first letter of first word    |
+| capitalizeEach | boolean                                               | capitalize each first letter of every word    |
+| thousand       | boolean                                               | add a comma to a number when more than 3 zero |
+| italic         | boolean                                               | fontStyle italic                              |
+| deco           | underline, none, through, underline-through           | textDecorationLine                            |
+| style          | stylesheet                                            | any other style                               |
 
 ## TODO
 

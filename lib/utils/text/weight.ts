@@ -18,7 +18,7 @@ export const weightUtils = (props: IProps) => {
   const normalWeight = get(props, ['theme', 'text', 'weight', 'normal']);
   const boldWeight = get(props, ['theme', 'text', 'weight', 'bold']);
 
-  _style.fontWeight = props.theme.text.weight.normal;
+  _style.fontWeight = normalWeight;
 
   const light = get(props, 'light');
 

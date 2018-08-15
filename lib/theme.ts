@@ -86,6 +86,13 @@ export const theme = {
     lg: 20,
     xl: 30,
   },
+  opacity: {
+    none: 0,
+    low: 0.3,
+    demi: 0.5,
+    high: 0.8,
+    base: 1,
+  },
   shadows: [
     {
       shadowColor: color.black,

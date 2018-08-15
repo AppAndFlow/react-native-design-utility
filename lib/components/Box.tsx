@@ -15,6 +15,8 @@ import { DirType, AlignType, JustifyType, SelfType } from '../types/Flex';
 import { radiusUtils } from '../utils/box/radius';
 import { RadiusType } from '../types/Radius';
 import { shadowUtils } from '../utils/box/shadow';
+import { OpacityType } from '../types/OpacityType';
+import { opacityUtils } from '../utils/opacity';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -26,6 +28,8 @@ export interface UtilityBoxProps {
   bg?: string;
 
   center?: boolean;
+
+  o?: OpacityType | number | string;
 
   h?: number | string;
 
@@ -98,6 +102,8 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
   self,
   dir,
 
+  o,
+
   bg,
 
   rows,
@@ -136,6 +142,7 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
     children,
     size: { height: h, width: w },
   });
+  const _opacity = opacityUtils({ o, theme });
 
   const _style: {
     backgroundColor?: string;
@@ -168,6 +175,7 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
       ..._size,
       ..._flex,
       ..._radius.style,
+      ..._opacity,
       ...customStyle,
     },
   });

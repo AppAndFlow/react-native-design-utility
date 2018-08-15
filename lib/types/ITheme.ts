@@ -33,6 +33,13 @@ export interface ITheme {
       large: number;
     };
   };
+  opacity: {
+    none: number;
+    low: number;
+    demi: number;
+    high: number;
+    base: number;
+  };
   borders: Array<{
     borderWidth: number;
     borderColor: string;

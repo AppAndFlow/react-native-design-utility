@@ -20,6 +20,8 @@ import { lineHeightUtils } from '../utils/text/lineHeight';
 import { decoUtils } from '../utils/text/deco';
 import { LineHeightType } from '../types/LineHeight';
 import { TextDecoType } from '../types/TextDeco';
+import { OpacityType } from '../types/OpacityType';
+import { opacityUtils } from '../utils/opacity';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -35,6 +37,8 @@ export interface UtilityTextProps {
   lineH?: LineHeightType | string | number;
 
   deco?: TextDecoType;
+
+  o?: OpacityType | number | string;
 
   center?: boolean;
   left?: boolean;
@@ -111,6 +115,8 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
   normal,
   light,
 
+  o,
+
   italic,
   deco,
   style: customStyle,
@@ -148,6 +154,7 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
   const _fontStyle = fontStyleUtils({ italic });
   const _lineHeight = lineHeightUtils({ lineH, theme }, _size.fontSize);
   const _deco = decoUtils({ deco });
+  const _opacity = opacityUtils({ o, theme });
 
   const child = textManipulationUtils({
     capitalize,
@@ -172,6 +179,7 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
       ..._fontStyle,
       ..._lineHeight,
       ..._deco,
+      ..._opacity,
       fontFamily,
       ...customStyle,
     },
