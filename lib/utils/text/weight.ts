@@ -7,6 +7,7 @@ interface IProps {
   light?: boolean;
   bold?: boolean;
   normal?: boolean;
+  weight?: string;
 }
 
 export const weightUtils = (props: IProps) => {
@@ -36,6 +37,12 @@ export const weightUtils = (props: IProps) => {
 
   if (bold && boldWeight) {
     _style.fontWeight = boldWeight;
+  }
+
+  const weight = get(props, 'weight');
+
+  if (typeof weight === 'string') {
+    _style.fontWeight = weight;
   }
 
   return _style;

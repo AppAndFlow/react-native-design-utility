@@ -74,6 +74,7 @@ export interface UtilityTextProps {
   bold?: boolean;
   light?: boolean;
   normal?: boolean;
+  weight?: string;
 }
 
 const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
@@ -114,6 +115,7 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
   bold,
   normal,
   light,
+  weight,
 
   o,
 
@@ -141,7 +143,7 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
     theme,
   });
   const _size = textSizeUtils({ size, theme });
-  const _weight = weightUtils({ bold, normal, light, theme });
+  const _weight = weightUtils({ bold, normal, light, theme, weight });
   const _color = colorUtils({ color, theme });
   const _align = textAlignUtils({
     center,
