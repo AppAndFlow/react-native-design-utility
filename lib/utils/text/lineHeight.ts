@@ -17,7 +17,9 @@ export const lineHeightUtils = (props: IProps, fontSize?: number) => {
 
   const height = get(props, 'lineH');
 
-  if (themeLineHeight && typeof fontSize === 'number') {
+  if (typeof height === 'number') {
+    _style.lineHeight = height;
+  } else if (themeLineHeight && typeof fontSize === 'number') {
     const normal = get(themeLineHeight, 'normal');
 
     if (typeof normal === 'number') {
@@ -37,8 +39,6 @@ export const lineHeightUtils = (props: IProps, fontSize?: number) => {
         _style.lineHeight = fontSize * _size;
       }
     }
-  } else if (typeof height === 'number') {
-    _style.lineHeight = height;
   }
 
   return _style;
