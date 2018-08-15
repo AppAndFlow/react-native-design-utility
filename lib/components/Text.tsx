@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text as RnText, StyleSheet } from 'react-native';
+import { Text as RnText, StyleSheet, TextProps } from 'react-native';
 import get from 'lodash.get';
 
 import WrappedComponent from './WrappedComponent';
@@ -77,7 +77,7 @@ export interface UtilityTextProps {
   weight?: string;
 }
 
-const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
+const Text: React.SFC<IInjectedProps & UtilityTextProps & TextProps> = ({
   theme,
   border,
   color,

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ViewProps } from 'react-native';
 import get from 'lodash.get';
 
 import WrappedComponent from './WrappedComponent';
@@ -68,7 +68,7 @@ export interface UtilityBoxProps {
   rows?: number[];
 }
 
-const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
+const Box: React.SFC<IInjectedProps & UtilityBoxProps & ViewProps> = ({
   theme,
   m,
   mb,
