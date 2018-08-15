@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View, StyleSheet, ViewProps } from 'react-native';
+import { View, StyleSheet, ViewProps, ViewStyle } from 'react-native';
 import get from 'lodash.get';
 
 import WrappedComponent from './WrappedComponent';
@@ -23,7 +23,7 @@ export interface IInjectedProps {
 }
 
 export interface UtilityBoxProps {
-  style?: any;
+  style?: ViewStyle;
 
   bg?: string;
 
@@ -176,6 +176,7 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps & ViewProps> = ({
       ..._flex,
       ..._radius.style,
       ..._opacity,
+      // @ts-ignore
       ...customStyle,
     },
   });

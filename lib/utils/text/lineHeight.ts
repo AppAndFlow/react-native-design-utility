@@ -37,6 +37,8 @@ export const lineHeightUtils = (props: IProps, fontSize?: number) => {
         _style.lineHeight = fontSize * _size;
       }
     }
+  } else if (typeof height === 'number') {
+    _style.lineHeight = height;
   }
 
   return _style;

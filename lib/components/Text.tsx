@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text as RnText, StyleSheet, TextProps } from 'react-native';
+import { Text as RnText, StyleSheet, TextProps, TextStyle } from 'react-native';
 import get from 'lodash.get';
 
 import WrappedComponent from './WrappedComponent';
@@ -28,7 +28,7 @@ export interface IInjectedProps {
 }
 
 export interface UtilityTextProps {
-  style?: any;
+  style?: TextStyle;
 
   border?: number;
 
@@ -183,6 +183,7 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps & TextProps> = ({
       ..._deco,
       ..._opacity,
       fontFamily,
+      // @ts-ignore
       ...customStyle,
     },
   });
