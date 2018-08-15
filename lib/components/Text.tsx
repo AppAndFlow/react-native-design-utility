@@ -1,5 +1,11 @@
 import * as React from 'react';
-import { Text as RnText, StyleSheet, TextProps, TextStyle } from 'react-native';
+import {
+  Text as RnText,
+  StyleSheet,
+  TextProps,
+  TextStyle,
+  StyleProp,
+} from 'react-native';
 import get from 'lodash.get';
 
 import WrappedComponent from './WrappedComponent';
@@ -22,13 +28,14 @@ import { LineHeightType } from '../types/LineHeight';
 import { TextDecoType } from '../types/TextDeco';
 import { OpacityType } from '../types/OpacityType';
 import { opacityUtils } from '../utils/opacity';
+import { flattenStyle } from '../utils/flattenStyle';
 
 export interface IInjectedProps {
   theme: ITheme;
 }
 
 export interface UtilityTextProps {
-  style?: TextStyle;
+  style?: StyleProp<TextStyle>;
 
   border?: number;
 
@@ -169,6 +176,8 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps & TextProps> = ({
 
   const fontFamily = get(theme, ['text', 'font']);
 
+  const _customStyle = flattenStyle(customStyle);
+
   const style = StyleSheet.create({
     text: {
       ..._space,
@@ -183,8 +192,7 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps & TextProps> = ({
       ..._deco,
       ..._opacity,
       fontFamily,
-      // @ts-ignore
-      ...customStyle,
+      ..._customStyle,
     },
   });
 

@@ -1,5 +1,11 @@
 import * as React from 'react';
-import { View, StyleSheet, ViewProps, ViewStyle } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ViewProps,
+  ViewStyle,
+  StyleProp,
+} from 'react-native';
 import get from 'lodash.get';
 
 import WrappedComponent from './WrappedComponent';
@@ -17,13 +23,14 @@ import { RadiusType } from '../types/Radius';
 import { shadowUtils } from '../utils/box/shadow';
 import { OpacityType } from '../types/OpacityType';
 import { opacityUtils } from '../utils/opacity';
+import { flattenStyle } from '../utils/flattenStyle';
 
 export interface IInjectedProps {
   theme: ITheme;
 }
 
 export interface UtilityBoxProps {
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
 
   bg?: string;
 
@@ -165,6 +172,8 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps & ViewProps> = ({
     newChild = boxRowsUtils({ rows, children });
   }
 
+  const _customStyle = flattenStyle(customStyle);
+
   const style = StyleSheet.create({
     box: {
       ..._style,
@@ -176,8 +185,7 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps & ViewProps> = ({
       ..._flex,
       ..._radius.style,
       ..._opacity,
-      // @ts-ignore
-      ...customStyle,
+      ..._customStyle,
     },
   });
 
