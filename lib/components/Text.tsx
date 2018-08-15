@@ -32,7 +32,7 @@ export interface UtilityTextProps {
 
   italic?: boolean;
 
-  lineH?: LineHeightType;
+  lineH?: LineHeightType | string | number;
 
   deco?: TextDecoType;
 
@@ -58,8 +58,8 @@ export interface UtilityTextProps {
   px?: SpaceType;
   py?: SpaceType;
 
-  ls?: LetterSpacingType;
-  size?: FontSizeType;
+  ls?: LetterSpacingType | number | string;
+  size?: FontSizeType | string | number;
 
   uppercase?: boolean;
   lowercase?: boolean;

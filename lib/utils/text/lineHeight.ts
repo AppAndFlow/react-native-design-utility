@@ -5,7 +5,7 @@ import { LineHeightType } from '../../types/LineHeight';
 
 interface IProps {
   theme: ITheme;
-  lineH?: LineHeightType;
+  lineH?: LineHeightType | string | number;
 }
 
 export const lineHeightUtils = (props: IProps, fontSize?: number) => {
@@ -25,10 +25,16 @@ export const lineHeightUtils = (props: IProps, fontSize?: number) => {
     }
 
     if (height) {
-      const size = themeLineHeight[height];
+      let _size;
 
-      if (typeof size === 'number') {
-        _style.lineHeight = fontSize * size;
+      if (typeof height === 'string') {
+        _size = themeLineHeight[height];
+      } else if (typeof height === 'number') {
+        _size = height;
+      }
+
+      if (typeof _size === 'number') {
+        _style.lineHeight = fontSize * _size;
       }
     }
   }

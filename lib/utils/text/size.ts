@@ -5,7 +5,7 @@ import { FontSizeType } from '../../types/FontSize';
 
 interface IProps {
   theme: ITheme;
-  size?: number | FontSizeType;
+  size?: number | FontSizeType | string;
 }
 
 export const textSizeUtils = (props: IProps) => {

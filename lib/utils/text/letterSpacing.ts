@@ -4,7 +4,7 @@ import { LetterSpacingType } from '../../types/LetterSpacing';
 import { ITheme } from '../../types/ITheme';
 
 interface IProps {
-  ls?: LetterSpacingType;
+  ls?: LetterSpacingType | number | string;
   theme: ITheme;
 }
 
@@ -26,6 +26,8 @@ export const letterSpacingUtils = (props: IProps) => {
     if (space) {
       _style.letterSpacing = space;
     }
+  } else if (typeof ls === 'number') {
+    _style.letterSpacing = ls;
   }
 
   return _style;
