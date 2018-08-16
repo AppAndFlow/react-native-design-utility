@@ -25,7 +25,7 @@ export interface ITheme {
       normal: number;
       wide: number;
     };
-    font: null | string;
+    fonts: { [key: string]: string | null };
     lineHeight: {
       none: number;
       tight: number;

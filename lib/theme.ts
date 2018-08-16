@@ -69,7 +69,9 @@ export const theme = {
       normal: 1.5,
       large: 2,
     },
-    font: null,
+    fonts: {
+      base: null,
+    },
   },
   color,
   space: {

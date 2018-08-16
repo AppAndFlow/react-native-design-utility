@@ -6,7 +6,6 @@ import {
   TextStyle,
   StyleProp,
 } from 'react-native';
-import get from 'lodash.get';
 
 import WrappedComponent from './WrappedComponent';
 import { spaceUtils } from '../utils/space';
@@ -29,6 +28,7 @@ import { TextDecoType } from '../types/TextDeco';
 import { OpacityType } from '../types/OpacityType';
 import { opacityUtils } from '../utils/opacity';
 import { flattenStyle } from '../utils/flattenStyle';
+import { fontFamilyUtils } from '../utils/text/fontFamily';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -52,6 +52,8 @@ export interface UtilityTextProps {
   right?: boolean;
 
   color?: string;
+
+  font?: string;
 
   m?: SpaceType;
   mb?: SpaceType;
@@ -112,6 +114,8 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps & TextProps> = ({
   capitalizeEach,
   thousand,
 
+  font,
+
   center,
   right,
   left,
@@ -164,6 +168,7 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps & TextProps> = ({
   const _lineHeight = lineHeightUtils({ lineH, theme }, _size.fontSize);
   const _deco = decoUtils({ deco });
   const _opacity = opacityUtils({ o, theme });
+  const _fontFamily = fontFamilyUtils({ font, theme });
 
   const child = textManipulationUtils({
     capitalize,
@@ -173,8 +178,6 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps & TextProps> = ({
     children,
     thousand,
   });
-
-  const fontFamily = get(theme, ['text', 'font']);
 
   const _customStyle = flattenStyle(customStyle);
 
@@ -191,7 +194,7 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps & TextProps> = ({
       ..._lineHeight,
       ..._deco,
       ..._opacity,
-      fontFamily,
+      ..._fontFamily,
       ..._customStyle,
     },
   });
