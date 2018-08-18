@@ -161,6 +161,8 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps & ViewProps> = ({
     const color = themeColor[bg];
     if (color) {
       _style.backgroundColor = color;
+    } else {
+      _style.backgroundColor = bg;
     }
   }
 

@@ -1,6 +1,6 @@
 {
   "name": "react-native-design-utility",
-  "version": "0.0.24",
+  "version": "0.0.25",
   "description": "react-native utility library for ui",
   "main": "dist/ReactNativeDesignUtility.js",
   "module": "dist/ReactNativeDesignUtility.es6.js",
@@ -12,7 +12,8 @@
   "keywords": [
     "react-native",
     "design-system",
-    "design-utility"
+    "design-utility",
+    "theme"
   ],
   "files": [
     "dist"

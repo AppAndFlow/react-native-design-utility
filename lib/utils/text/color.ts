@@ -19,13 +19,17 @@ export const colorUtils = (props: IProps) => {
   if (themeColor) {
     const black = get(themeColor, 'black');
 
-    _style.color = black;
+    if (black) {
+      _style.color = black;
+    }
 
     if (color) {
       const _color = themeColor[color];
 
       if (_color) {
         _style.color = _color;
+      } else {
+        _style.color = color;
       }
     }
   }

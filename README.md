@@ -40,7 +40,7 @@ By default the theme is this.
 const color = {
   black: '#212121',
 
-  greyDarkest: '#24242',
+  greyDarkest: '#242424',
   greyDarker: '#616161',
   greyDark: '#757575',
   grey: '#9e9e9e',
@@ -581,7 +581,7 @@ Result:
 | left           | boolean                                               | text-align left                                                      |
 | right          | boolean                                               | text-align right                                                     |
 | border         | number                                                | give border at index                                                 |
-| color          | string                                                | color                                                                |
+| color          | string                                                | color, default black in theme                                        |
 | size           | sm, base, md, lg, xl, any string or any number        | fontSize, default is base                                            |
 | weight         | string                                                | fontWeight, default is normal                                        |
 | bold           | boolean                                               | fontWeight bold in theme, , default is normal                        |
