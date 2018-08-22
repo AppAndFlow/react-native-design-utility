@@ -6,4 +6,5 @@ export type RadiusType =
   | 'xl'
   | 'rounded'
   | number
-  | boolean;
+  | boolean
+  | string;

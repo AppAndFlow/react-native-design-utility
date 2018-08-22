@@ -556,7 +556,7 @@ Result:
 | rows    | array of number                                       | add flex value to child Box at indexof, default 1 if not provide                   |
 | circle  | number                                                | create a circle with the size provided                                             |
 | avatar  | boolean                                               | if child is one Image will put this one in circle, must provided circle props also |
-| radius  | xs, sm, base, lg, xl, number, boolean                 | borderRadius, if true default is base                                              |
+| radius  | xs, sm, base, lg, xl, number, boolean, string         | borderRadius, if true default is base                                              |
 | style   | stylesheet                                            | any other style                                                                    |
 
 ### Text
