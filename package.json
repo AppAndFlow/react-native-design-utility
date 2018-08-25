@@ -1,6 +1,6 @@
 {
   "name": "react-native-design-utility",
-  "version": "0.0.26",
+  "version": "0.0.27",
   "description": "react-native utility library for ui",
   "main": "dist/ReactNativeDesignUtility.js",
   "module": "dist/ReactNativeDesignUtility.es6.js",

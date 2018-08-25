@@ -24,6 +24,8 @@ import { shadowUtils } from '../utils/box/shadow';
 import { OpacityType } from '../types/OpacityType';
 import { opacityUtils } from '../utils/opacity';
 import { flattenStyle } from '../utils/flattenStyle';
+import { PositionType } from '../types/Position';
+import { positionUtils } from '../utils/position';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -72,6 +74,8 @@ export interface UtilityBoxProps {
   px?: SpaceType;
   py?: SpaceType;
 
+  position: PositionType;
+
   rows?: number[];
 }
 
@@ -116,6 +120,8 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps & ViewProps> = ({
   rows,
   children,
 
+  position,
+
   style: customStyle,
   ...rest
 }) => {
@@ -150,6 +156,7 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps & ViewProps> = ({
     size: { height: h, width: w },
   });
   const _opacity = opacityUtils({ o, theme });
+  const _position = positionUtils({ position });
 
   const _style: {
     backgroundColor?: string;
@@ -187,6 +194,7 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps & ViewProps> = ({
       ..._flex,
       ..._radius.style,
       ..._opacity,
+      ..._position,
       ..._customStyle,
     },
   });
