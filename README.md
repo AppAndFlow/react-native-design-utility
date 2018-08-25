@@ -1,5 +1,7 @@
 ## react-native-design-utlity [Still in development]
 
+[![Stable Release](https://img.shields.io/npm/v/react-native-design-utility.svg)](https://npm.im/react-native-design-utility)
+
 I've been using [Tailwind](https://github.com/tailwindcss/tailwindcss) lately for the web. Loved it, but I didn't find any solution like this for react-native. So I build one who look like it but more for react-native design styling. I've add some text utility like `capitalize`, `capitalizeEach`, `thousand` etc. You pass props and this is pass to the StyleSheet, so this will not affect the perfomance.
 
 When I take a look back on my old project, lot of the time, because importing everytime my constants and metrics file become painful, I make use of hardcoded value. As you know this is not the best way to make an app easier to maintain. If value need to be change all this place where I did that need to ne update manually. All my margin and padding size was the bigger one. Now here just by providing the name as a props I make sure they all follow. No import nothing just like if you install a design framework etc. But now you create your own 😊. Don't worry, all props here have **fallback**. You don't want to use a value for your margin right? You can just do `mr={20}` this will add 20 for the marginRight style. You don't see what you need here. You can make use of the style props and add customStyle.
