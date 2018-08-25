@@ -74,7 +74,7 @@ export interface UtilityBoxProps {
   px?: SpaceType;
   py?: SpaceType;
 
-  position: PositionType;
+  position?: PositionType;
 
   rows?: number[];
 }
