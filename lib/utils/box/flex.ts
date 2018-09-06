@@ -9,6 +9,7 @@ import {
   JustifyType,
   AlignSelfType,
   SelfType,
+  FlexWrapType,
 } from '../../types/Flex';
 
 interface IProps {
@@ -17,6 +18,7 @@ interface IProps {
   align?: AlignType;
   justify?: JustifyType;
   self?: SelfType;
+  flexWrap?: FlexWrapType;
 }
 
 export const boxFlexUtils = (props: IProps) => {
@@ -26,6 +28,7 @@ export const boxFlexUtils = (props: IProps) => {
     justifyContent?: JustifyContentType;
     alignSelf?: AlignSelfType;
     flex?: number;
+    flexWrap?: FlexWrapType;
   } = {};
 
   if (props.f && typeof props.f === 'number') {
@@ -96,6 +99,12 @@ export const boxFlexUtils = (props: IProps) => {
     } else if (self === 'baseline') {
       _style.alignSelf = 'baseline';
     }
+  }
+
+  const flexWrap = get(props, 'flexWrap');
+
+  if (flexWrap) {
+    _style.flexWrap = flexWrap;
   }
 
   return _style;

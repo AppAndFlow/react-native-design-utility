@@ -39,3 +39,5 @@ export type SelfType =
   | 'center'
   | 'stretch'
   | 'baseline';
+
+export type FlexWrapType = 'wrap' | 'nowrap';
