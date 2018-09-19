@@ -268,7 +268,7 @@ class MyComponent extends Component {
             }}
           />
         </Box>
-        <Box border={2} align="end" justify="center" h={200} w={1} bg="red">
+        <Box border={2} align="end" justify="center" h={200} w="100%" bg="red">
           <Box bg="blue" f={1} />
           <Box bg="green" f={2} />
         </Box>

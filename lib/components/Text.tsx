@@ -34,7 +34,7 @@ export interface IInjectedProps {
   theme: ITheme;
 }
 
-export interface UtilityTextProps {
+export interface UtilityTextProps extends TextProps {
   style?: StyleProp<TextStyle>;
 
   border?: number;
@@ -86,7 +86,7 @@ export interface UtilityTextProps {
   weight?: string;
 }
 
-const Text: React.SFC<IInjectedProps & UtilityTextProps & TextProps> = ({
+const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
   theme,
   border,
   color,
@@ -200,6 +200,7 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps & TextProps> = ({
   });
 
   return (
+    // @ts-ignore
     <RnText {...rest} style={style.text}>
       {child}
     </RnText>

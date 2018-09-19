@@ -37,7 +37,7 @@ export interface IInjectedProps {
   theme: ITheme;
 }
 
-export interface UtilityBoxProps {
+export interface UtilityBoxProps extends ViewProps {
   style?: StyleProp<ViewStyle>;
 
   bg?: string;
@@ -87,7 +87,7 @@ export interface UtilityBoxProps {
   rows?: number[];
 }
 
-const Box: React.SFC<IInjectedProps & UtilityBoxProps & ViewProps> = ({
+const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
   theme,
   m,
   mb,

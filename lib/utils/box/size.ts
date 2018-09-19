@@ -17,7 +17,7 @@ export const boxSizeUtils = (props: IProps) => {
     if (typeof h === 'string') {
       _style.height = h;
     } else if (typeof h === 'number') {
-      if (h <= 1) {
+      if (h < 1) {
         _style.height = `${h * 100}%`;
       } else {
         _style.height = h;
@@ -31,7 +31,7 @@ export const boxSizeUtils = (props: IProps) => {
     if (typeof w === 'string') {
       _style.width = w;
     } else if (typeof w === 'number') {
-      if (w <= 1) {
+      if (w < 1) {
         _style.width = `${w * 100}%`;
       } else {
         _style.width = w;
