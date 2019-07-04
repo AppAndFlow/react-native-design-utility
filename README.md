@@ -27,11 +27,7 @@ import { UtilityThemeProvider } from 'react-native-design-utility';
 
 class App extends Component {
   render() {
-    return (
-      <UtilityThemeProvider>
-        ...rest of your app
-      </UtilityThemeProvider>
-    )
+    return <UtilityThemeProvider>...rest of your app</UtilityThemeProvider>;
   }
 }
 ```
@@ -207,7 +203,7 @@ class App extends Component {
       <UtilityThemeProvider theme={theme}>
         ...rest of your app
       </UtilityThemeProvider>
-    )
+    );
   }
 }
 ```
@@ -217,29 +213,28 @@ After you can custom any color or size etc. Dont play too much with the key, but
 ## Usage
 
 ```js
-import { Box, Text } from 'react-native-design-utility'
+import { Box, Text } from 'react-native-design-utility';
 
 class MyComponent extends Component {
   render() {
     return (
       <Box>
         <Box w="20%" bg="red" p="sm" mb="lg">
-          <Text border={1} size="lg" color="blueDarker" center bold capitalizeEach>
+          <Text
+            border={1}
+            size="lg"
+            color="blueDarker"
+            center
+            bold
+            capitalizeEach
+          >
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo,
             officiis quae deserunt exercitationem beatae nam atque nesciunt.
-            Dolore animi eum magni doloremque velit culpa accusamus
-            voluptatem, vero quos ea incidunt?
+            Dolore animi eum magni doloremque velit culpa accusamus voluptatem,
+            vero quos ea incidunt?
           </Text>
         </Box>
-        <Box
-          w={1}
-          bg="blue"
-          mb="sm"
-          center
-          py="sm"
-          rows={[1, 2, 1]}
-          dir="row"
-        >
+        <Box w={1} bg="blue" mb="sm" center py="sm" rows={[1, 2, 1]} dir="row">
           <Box bg="redDarker" self="center">
             <Text size="xl" bold capitalize>
               hello
@@ -273,7 +268,7 @@ class MyComponent extends Component {
           <Box bg="green" f={2} />
         </Box>
       </Box>
-    )
+    );
   }
 }
 ```
@@ -543,20 +538,20 @@ Result:
 | pl       | xs, sm, md, lg, xl or any number                      | paddingLeft                                                                        |
 | py       | xs, sm, md, lg, xl or any number                      | paddingVertical                                                                    |
 | px       | xs, sm, md, lg, xl or any number                      | paddingHorizontal                                                                  |
-| center   | boolean                                               | center element with flex                                                           |
-| border   | number                                                | give border at index                                                               |
+| center   | boolean                                               | center element with flex                                                            |
+| border   | number                                                | give border at index, null will remove any border                                  |
 | shadow   | number                                                | give shadow at index                                                               |
 | h        | number, fraction or string                            | height                                                                             |
 | w        | number, fraction or string                            | width                                                                              |
 | bg       | string                                                | backgroundColor                                                                    |
 | o        | none, low, demi, high, base, any string or any number | opacity                                                                            |
-| dir      | col, col-reverse, row, row-reverse                    | flexDirection                                                                      |
+| dir      | col, col-reverse, row, row-reverse                    | flexDirection                                                                       |
 | align    | start, end, center, stretch, baseline                 | alignItems                                                                         |
 | justify  | start, end, center, between, around, evenly           | justifyContent                                                                     |
 | self     | start, end, center, auto, stretch, baseline           | alignSelf                                                                          |
-| flexWrap | wrap, nowrap                                          | flexWrap                                                                           |
-| f        | number                                                | flex value                                                                         |
-| rows     | array of number                                       | add flex value to child Box at indexof, default 1 if not provide                   |
+| flexWrap | wrap, nowrap                                          | flexWrap                                                                             |
+| f        | number                                                | flex value                                                                          |
+| rows     | array of number                                       | add flex value to child Box at indexof, default 1 if not provide                    |
 | circle   | number                                                | create a circle with the size provided                                             |
 | avatar   | boolean                                               | if child is one Image will put this one in circle, must provided circle props also |
 | radius   | xs, sm, base, lg, xl, number, boolean, string         | borderRadius, if true default is base                                              |
@@ -596,8 +591,8 @@ Result:
 | o              | none, low, demi, high, base, any string or any number | opacity                                                              |
 | uppercase      | boolean                                               | uppercase all letters                                                |
 | lowercase      | boolean                                               | lowercase all letters                                                |
-| capitalize     | boolean                                               | capitalize only first letter of first word                           |
-| capitalizeEach | boolean                                               | capitalize each first letter of every word                           |
+| capitalize     | boolean                                               | capitalize only first letter of first word                             |
+| capitalizeEach | boolean                                               | capitalize each first letter of every word                            |
 | thousand       | boolean                                               | add a comma to a number when more than 3 zero                        |
 | italic         | boolean                                               | fontStyle italic                                                     |
 | deco           | underline, none, through, underline-through           | textDecorationLine                                                   |
