@@ -1,4 +1,4 @@
-## react-native-design-utlity [Still in development]
+## react-native-design-utlity
 
 [![Stable Release](https://img.shields.io/npm/v/react-native-design-utility.svg)](https://npm.im/react-native-design-utility)
 
