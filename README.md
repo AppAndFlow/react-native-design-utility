@@ -538,24 +538,28 @@ Result:
 | pl       | xs, sm, md, lg, xl or any number                      | paddingLeft                                                                        |
 | py       | xs, sm, md, lg, xl or any number                      | paddingVertical                                                                    |
 | px       | xs, sm, md, lg, xl or any number                      | paddingHorizontal                                                                  |
-| center   | boolean                                               | center element with flex                                                            |
+| center   | boolean                                               | center element with flex                                                           |
 | border   | number                                                | give border at index, null will remove any border                                  |
 | shadow   | number                                                | give shadow at index                                                               |
 | h        | number, fraction or string                            | height                                                                             |
 | w        | number, fraction or string                            | width                                                                              |
 | bg       | string                                                | backgroundColor                                                                    |
 | o        | none, low, demi, high, base, any string or any number | opacity                                                                            |
-| dir      | col, col-reverse, row, row-reverse                    | flexDirection                                                                       |
+| dir      | col, col-reverse, row, row-reverse                    | flexDirection                                                                      |
 | align    | start, end, center, stretch, baseline                 | alignItems                                                                         |
 | justify  | start, end, center, between, around, evenly           | justifyContent                                                                     |
 | self     | start, end, center, auto, stretch, baseline           | alignSelf                                                                          |
-| flexWrap | wrap, nowrap                                          | flexWrap                                                                             |
-| f        | number                                                | flex value                                                                          |
-| rows     | array of number                                       | add flex value to child Box at indexof, default 1 if not provide                    |
+| flexWrap | wrap, nowrap                                          | flexWrap                                                                           |
+| f        | number                                                | flex value                                                                         |
+| rows     | array of number                                       | add flex value to child Box at indexof, default 1 if not provide                   |
 | circle   | number                                                | create a circle with the size provided                                             |
 | avatar   | boolean                                               | if child is one Image will put this one in circle, must provided circle props also |
 | radius   | xs, sm, base, lg, xl, number, boolean, string         | borderRadius, if true default is base                                              |
 | position | relative, absolute                                    | position                                                                           |
+| top      | number                                                | top                                                                                |
+| bottom   | number                                                | bottom                                                                             |
+| left     | number                                                | left                                                                               |
+| right    | number                                                | right                                                                              |
 | style    | stylesheet                                            | any other style                                                                    |
 
 ### Text
@@ -591,8 +595,8 @@ Result:
 | o              | none, low, demi, high, base, any string or any number | opacity                                                              |
 | uppercase      | boolean                                               | uppercase all letters                                                |
 | lowercase      | boolean                                               | lowercase all letters                                                |
-| capitalize     | boolean                                               | capitalize only first letter of first word                             |
-| capitalizeEach | boolean                                               | capitalize each first letter of every word                            |
+| capitalize     | boolean                                               | capitalize only first letter of first word                           |
+| capitalizeEach | boolean                                               | capitalize each first letter of every word                           |
 | thousand       | boolean                                               | add a comma to a number when more than 3 zero                        |
 | italic         | boolean                                               | fontStyle italic                                                     |
 | deco           | underline, none, through, underline-through           | textDecorationLine                                                   |

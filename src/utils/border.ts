@@ -9,7 +9,7 @@ interface IProps {
 
 export const borderUtils = (props: IProps) => {
   let _style: {
-    borderWidth?: number,
+    borderWidth?: number;
   } = {};
 
   const border = get(props, 'border');

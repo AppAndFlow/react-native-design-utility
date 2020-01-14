@@ -83,6 +83,10 @@ export interface UtilityBoxProps extends ViewProps {
   py?: SpaceType;
 
   position?: PositionType;
+  top?: number;
+  bottom?: number;
+  left?: number;
+  right?: number;
 
   rows?: number[];
 }
@@ -130,6 +134,10 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
   children,
 
   position,
+  top,
+  bottom,
+  left,
+  right,
 
   style: customStyle,
   ...rest
@@ -165,7 +173,7 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
     size: { height: h, width: w },
   });
   const _opacity = opacityUtils({ o, theme });
-  const _position = positionUtils({ position });
+  const _position = positionUtils({ position, top, bottom, right, left });
 
   const _style: {
     backgroundColor?: string;

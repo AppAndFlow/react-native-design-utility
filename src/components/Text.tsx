@@ -19,7 +19,7 @@ import { FontSizeType } from '../types/FontSize';
 import { letterSpacingUtils } from '../utils/text/letterSpacing';
 import { LetterSpacingType } from '../types/LetterSpacing';
 import { borderUtils } from '../utils/border';
-import { textManipulationUtils } from '../utils/text/manipulation';
+import { manipulationUtils } from '../utils/text/manipulation';
 import { fontStyleUtils } from '../utils/text/fontStyle';
 import { lineHeightUtils } from '../utils/text/lineHeight';
 import { decoUtils } from '../utils/text/deco';
@@ -170,7 +170,7 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
   const _opacity = opacityUtils({ o, theme });
   const _fontFamily = fontFamilyUtils({ font, theme });
 
-  const child = textManipulationUtils({
+  const child = manipulationUtils({
     capitalize,
     capitalizeEach,
     lowercase,
