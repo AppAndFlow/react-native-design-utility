@@ -1,30 +1,30 @@
 {
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "declaration": true,
-    "declarationDir": "dist",
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "alwaysStrict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "target": "es5",
-    "lib": ["es2015"],
+    "lib": ["esnext"],
     "module": "esnext",
-    "importHelpers": true,
     "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
+    "noImplicitUseStrict": false,
+    "noStrictGenericChecks": false,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "compiled",
-    "pretty": true,
-    "removeComments": false,
-    "sourceMap": true,
-    "strictNullChecks": true,
-    "stripInternal": true,
-    "skipLibCheck": true
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "target": "esnext"
   },
-  "include": ["lib"],
-  "exclude": ["node_modules", "dist"]
+  "typeAcquisition": {
+    "enable": true,
+    "include": ["react", "react-native"]
+  }
 }

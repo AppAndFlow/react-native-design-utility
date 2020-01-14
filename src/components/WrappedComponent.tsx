@@ -7,7 +7,7 @@ export interface IProps {
   theme: ITheme;
 }
 
-function getDisplayName(wrappedComponent: React.ComponentType<IProps>) {
+function getDisplayName(wrappedComponent: React.ComponentType<IProps & any>) {
   return (
     `Utility(${wrappedComponent.displayName})` ||
     `Utility(${wrappedComponent.name})` ||

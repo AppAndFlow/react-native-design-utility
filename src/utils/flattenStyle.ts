@@ -13,6 +13,7 @@ export const flattenStyle = (
 
   const result = {};
   for (let i = 0, styleLength = style.length; i < styleLength; ++i) {
+    // @ts-ignore
     const computedStyle = flattenStyle(style[i]);
     if (computedStyle) {
       for (const key in computedStyle) {

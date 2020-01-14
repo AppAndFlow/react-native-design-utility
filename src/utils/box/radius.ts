@@ -40,8 +40,9 @@ export const radiusUtils = (props: IProps) => {
       avatar &&
       typeof circle === 'number' &&
       children &&
-      React.Children.only(children).type === Image
+      React.Children.only(children).valueOf() === Image
     ) {
+      // @ts-ignore
       newChildren = React.cloneElement(React.Children.only(children), {
         style: {
           borderRadius: circle / 2,

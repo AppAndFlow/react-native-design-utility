@@ -1,4 +1,5 @@
 import get from 'lodash.get';
+import React from 'react';
 
 const capitalizeText = (str: string) =>
   str.charAt(0).toUpperCase() + str.slice(1);
@@ -22,7 +23,7 @@ interface IProps {
   children?: React.ReactNode;
 }
 
-export const textManipulationUtils = (props: IProps) => {
+export const manipulationUtils = (props: IProps) => {
   let newChild = props.children;
 
   if (typeof props.children === 'string') {
