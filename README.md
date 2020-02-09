@@ -188,7 +188,7 @@ node ./node_modules/react-native-design-utility/dist/init.js
 
 This will come with some basic space etc. Also this library provide lot of custom color coming from [Material color ](https://www.materialpalette.com/colors)
 
-You can take a look of the basic theme provide [here](https://github.com/EQuimper/react-native-design-utility/blob/master/lib/theme.ts)
+You can take a look of the basic theme provide [here](https://github.com/EQuimper/react-native-design-utility/blob/master/src/theme.ts)
 
 Add the theme to the provider as a props
 
