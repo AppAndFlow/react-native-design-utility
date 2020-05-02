@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { theme } from './theme';
+import { theme } from '../theme';
 
 export const UtilityThemeContext = React.createContext(theme);
 
