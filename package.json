@@ -1,6 +1,6 @@
 {
   "name": "react-native-design-utility",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "react-native utility library for ui",
   "main": "dist/commonjs/index.js",
   "module": "dist/module/index.js",
@@ -35,8 +35,7 @@
   "files": [
     "dist/",
     "theme.js",
-    "LICENSE.md",
-    "README.md"
+    "src/"
   ],
   "author": {
     "email": "quimperemanuel@gmail.com",
