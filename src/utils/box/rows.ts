@@ -1,8 +1,6 @@
 import get from 'lodash.get';
 import * as React from 'react';
 
-import { Box } from '../../index';
-
 interface IProps {
   rows?: number[];
   children?: React.ReactNode;
@@ -18,7 +16,7 @@ export const boxRowsUtils = (props: IProps) => {
       // @ts-ignore
       props.children,
       (child: React.ReactElement, i) => {
-        if (child.type === Box) {
+        if (child.type === 'Box') {
           return React.cloneElement(child, {
             f: rows[i] || 1,
           });

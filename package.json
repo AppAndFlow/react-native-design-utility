@@ -1,6 +1,6 @@
 {
   "name": "react-native-design-utility",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "react-native utility library for ui",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
