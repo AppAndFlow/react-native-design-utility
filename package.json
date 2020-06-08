@@ -1,11 +1,11 @@
 {
   "name": "react-native-design-utility",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "react-native utility library for ui",
-  "main": "dist/commonjs/index.js",
-  "module": "dist/module/index.js",
+  "main": "lib/commonjs/index.js",
+  "module": "lib/module/index.js",
   "react-native": "src/index.ts",
-  "types": "dist/typescript/index.d.ts",
+  "types": "lib/typescript/src/index.d.ts",
   "license": "MIT",
   "repository": {
     "url": "https://github.com/EQuimper/react-native-design-utility"
@@ -19,7 +19,7 @@
   },
   "@react-native-community/bob": {
     "source": "src",
-    "output": "dist",
+    "output": "lib",
     "targets": [
       "commonjs",
       "module",
@@ -33,7 +33,7 @@
     "theme"
   ],
   "files": [
-    "dist/",
+    "lib/",
     "theme.js",
     "src/"
   ],
@@ -72,7 +72,7 @@
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^4.1.0",
-    "typescript": "^3.7.4"
+    "typescript": "^3.9.5"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
