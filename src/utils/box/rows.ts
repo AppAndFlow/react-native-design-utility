@@ -1,7 +1,7 @@
 import get from 'lodash.get';
 import * as React from 'react';
 
-import Box from '../../components/Box';
+import { Box } from '../../index';
 
 interface IProps {
   rows?: number[];
