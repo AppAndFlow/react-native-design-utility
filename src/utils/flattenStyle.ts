@@ -18,7 +18,7 @@ export const flattenStyle = (
     if (computedStyle) {
       for (const key in computedStyle) {
         // @ts-ignore
-        result[key] = computedStyle[key];
+        result[key] = computedStyle[key]
       }
     }
   }
