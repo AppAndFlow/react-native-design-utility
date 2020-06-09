@@ -183,7 +183,7 @@ As you can see this give you a good amount of basic style, size and other stuff.
 For initialize the theme you can run.
 
 ```
-node ./node_modules/react-native-design-utility/dist/commonjs/init.js
+node ./node_modules/react-native-design-utility/lib/commonjs/init.js
 ```
 
 This will come with some basic space etc. Also this library provide lot of custom color coming from [Material color ](https://www.materialpalette.com/colors)
