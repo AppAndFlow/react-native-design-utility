@@ -42,10 +42,13 @@ export interface UtilityTextProps extends TextProps {
   italic?: boolean;
 
   lineH?: LineHeightType | string | number;
+  lineHeight?: LineHeightType | string | number;
 
   deco?: TextDecoType;
+  textDecoration?: TextDecoType;
 
   o?: OpacityType | number | string;
+  opacity?: OpacityType | number | string;
 
   center?: boolean;
   left?: boolean;
@@ -54,25 +57,55 @@ export interface UtilityTextProps extends TextProps {
   color?: string;
 
   font?: string;
+  fontFamily?: string;
 
   m?: SpaceType;
+  margin?: SpaceType;
+
   mb?: SpaceType;
+  marginBottom?: SpaceType;
+
   mt?: SpaceType;
+  marginTop?: SpaceType;
+
   mr?: SpaceType;
+  marginRight?: SpaceType;
+
   ml?: SpaceType;
+  marginLeft?: SpaceType;
+
   mx?: SpaceType;
+  marginHorizontale?: SpaceType;
+
   my?: SpaceType;
+  marginVertical?: SpaceType;
 
   p?: SpaceType;
+  padding?: SpaceType;
+
   pb?: SpaceType;
+  paddingBottom?: SpaceType;
+
   pt?: SpaceType;
+  paddingTop?: SpaceType;
+
   pr?: SpaceType;
+  paddingRight?: SpaceType;
+
   pl?: SpaceType;
+  paddingLeft?: SpaceType;
+
   px?: SpaceType;
+  paddingHorizontale?: SpaceType;
+
   py?: SpaceType;
+  paddingVertical?: SpaceType;
 
   ls?: LetterSpacingType | number | string;
+  letterSpacing?: LetterSpacingType | number | string;
+
   size?: FontSizeType | string | number;
+  fontSize?: FontSizeType | string | number;
 
   uppercase?: boolean;
   lowercase?: boolean;
@@ -84,6 +117,7 @@ export interface UtilityTextProps extends TextProps {
   light?: boolean;
   normal?: boolean;
   weight?: string;
+  fontWeight?: string;
 }
 
 const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
@@ -92,21 +126,36 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
   color,
 
   m,
+  margin,
   mb,
+  marginBottom,
   mt,
+  marginTop,
   mr,
+  marginRight,
   ml,
+  marginLeft,
   my,
+  marginVertical,
   mx,
+  marginHorizontale,
   p,
+  padding,
   pb,
+  paddingBottom,
   pt,
+  paddingTop,
   pr,
+  paddingRight,
   pl,
+  paddingLeft,
   px,
+  paddingHorizontale,
   py,
+  paddingVertical,
 
   ls,
+  letterSpacing,
 
   lowercase,
   uppercase,
@@ -115,46 +164,58 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
   thousand,
 
   font,
+  fontFamily,
 
   center,
   right,
   left,
 
   lineH,
+  lineHeight,
   size,
+  fontSize,
 
   bold,
   normal,
   light,
   weight,
+  fontWeight,
 
   o,
+  opacity,
 
   italic,
   deco,
+  textDecoration,
   style: customStyle,
   children,
   ...rest
 }) => {
   const _space = spaceUtils({
-    m,
-    mb,
-    mt,
-    mr,
-    ml,
-    my,
-    mx,
-    p,
-    pb,
-    py,
-    pt,
-    pr,
-    pl,
-    px,
+    m: m ?? margin,
+    mb: mb ?? marginBottom,
+    mt: mt ?? marginTop,
+    mr: mr ?? marginRight,
+    ml: ml ?? marginLeft,
+    my: my ?? marginVertical,
+    mx: mx ?? marginHorizontale,
+    p: p ?? padding,
+    pb: pb ?? paddingBottom,
+    py: py ?? paddingVertical,
+    pt: pt ?? paddingTop,
+    pr: pr ?? paddingRight,
+    pl: pl ?? paddingLeft,
+    px: px ?? paddingHorizontale,
     theme,
   });
-  const _size = textSizeUtils({ size, theme });
-  const _weight = weightUtils({ bold, normal, light, theme, weight });
+  const _size = textSizeUtils({ size: size ?? fontSize, theme });
+  const _weight = weightUtils({
+    bold,
+    normal,
+    light,
+    theme,
+    weight: weight ?? fontWeight,
+  });
   const _color = colorUtils({ color, theme });
   const _align = textAlignUtils({
     center,
@@ -162,13 +223,16 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
     left,
     theme,
   });
-  const _spacing = letterSpacingUtils({ ls, theme });
+  const _spacing = letterSpacingUtils({ ls: ls ?? letterSpacing, theme });
   const _border = borderUtils({ border, theme });
   const _fontStyle = fontStyleUtils({ italic });
-  const _lineHeight = lineHeightUtils({ lineH, theme }, _size.fontSize);
-  const _deco = decoUtils({ deco });
-  const _opacity = opacityUtils({ o, theme });
-  const _fontFamily = fontFamilyUtils({ font, theme });
+  const _lineHeight = lineHeightUtils(
+    { lineH: lineH ?? lineHeight, theme },
+    _size.fontSize,
+  );
+  const _deco = decoUtils({ deco: deco ?? textDecoration });
+  const _opacity = opacityUtils({ o: o ?? opacity, theme });
+  const _fontFamily = fontFamilyUtils({ font: font ?? fontFamily, theme });
 
   const child = manipulationUtils({
     capitalize,

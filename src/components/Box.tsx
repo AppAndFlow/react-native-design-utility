@@ -41,46 +41,87 @@ export interface UtilityBoxProps extends ViewProps {
   style?: StyleProp<ViewStyle>;
 
   bg?: string;
+  backgroundColor?: string;
 
   center?: boolean;
 
   o?: OpacityType | number | string;
+  opacity?: OpacityType | number | string;
 
   h?: number | string;
+  height?: number | string;
 
   w?: number | string;
+  width?: number | string;
 
   f?: number;
+  flex?: number;
 
   border?: number;
   shadow?: number;
+  boxShadow?: number;
 
   radius?: RadiusType;
+  borderRadius?: RadiusType;
+
   circle?: number;
   avatar?: boolean;
 
   dir?: DirType;
+  flexDirection?: DirType;
+
   align?: AlignType;
+  alignItems?: AlignType;
+
   justify?: JustifyType;
+  justifyContent?: JustifyType;
+
   self?: SelfType;
+  alignSelf?: SelfType;
 
   flexWrap?: FlexWrapType;
 
   m?: SpaceType;
+  margin?: SpaceType;
+
   mb?: SpaceType;
+  marginBottom?: SpaceType;
+
   mt?: SpaceType;
+  marginTop?: SpaceType;
+
   mr?: SpaceType;
+  marginRight?: SpaceType;
+
   ml?: SpaceType;
+  marginLeft?: SpaceType;
+
   mx?: SpaceType;
+  marginHorizontal?: SpaceType;
+
   my?: SpaceType;
+  marginVertical?: SpaceType;
 
   p?: SpaceType;
+  padding?: SpaceType;
+
   pb?: SpaceType;
+  paddingBottom?: SpaceType;
+
   pt?: SpaceType;
+  paddingTop?: SpaceType;
+
   pr?: SpaceType;
+  paddingRight?: SpaceType;
+
   pl?: SpaceType;
+  paddingLeft?: SpaceType;
+
   px?: SpaceType;
+  paddingHorizontale?: SpaceType;
+
   py?: SpaceType;
+  paddingVertical?: SpaceType;
 
   position?: PositionType;
   top?: number;
@@ -94,41 +135,66 @@ export interface UtilityBoxProps extends ViewProps {
 const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
   theme,
   m,
+  margin,
   mb,
+  marginBottom,
   mt,
+  marginTop,
   mr,
+  marginRight,
   ml,
+  marginLeft,
   my,
+  marginVertical,
   mx,
+  marginHorizontal,
   p,
+  padding,
   pb,
+  paddingBottom,
   py,
+  paddingVertical,
   pt,
+  paddingTop,
   pr,
+  paddingRight,
   pl,
+  paddingLeft,
   px,
+  paddingHorizontale,
 
   radius,
+  borderRadius,
   avatar,
   circle,
 
   center,
   border,
   shadow,
+  boxShadow,
 
   f,
+  flex,
   h,
+  height,
   w,
+  width,
 
   align,
+  alignItems,
   justify,
+  justifyContent,
   self,
+  alignSelf,
   dir,
+  flexDirection,
   flexWrap,
 
   o,
+  opacity,
 
   bg,
+  backgroundColor,
 
   rows,
   children,
@@ -161,18 +227,25 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
   });
   const _align = boxAlignUtils({ center });
   const _border = borderUtils({ border, theme });
-  const _shadow = shadowUtils({ shadow, theme });
-  const _size = boxSizeUtils({ w, h });
-  const _flex = boxFlexUtils({ align, justify, dir, f, self, flexWrap });
+  const _shadow = shadowUtils({ shadow: shadow ?? boxShadow, theme });
+  const _size = boxSizeUtils({ w: w ?? width, h: h ?? height });
+  const _flex = boxFlexUtils({
+    align: align ?? alignItems,
+    justify: justify ?? justifyContent,
+    dir: dir ?? flexDirection,
+    f: f ?? flex,
+    self: self ?? alignSelf,
+    flexWrap,
+  });
   const _radius = radiusUtils({
     theme,
-    radius,
+    radius: radius ?? borderRadius,
     circle,
     avatar,
     children,
-    size: { height: h, width: w },
+    size: { height: h ?? height, width: w ?? width },
   });
-  const _opacity = opacityUtils({ o, theme });
+  const _opacity = opacityUtils({ o: o ?? opacity, theme });
   const _position = positionUtils({ position, top, bottom, right, left });
 
   const _style: {
@@ -181,12 +254,14 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
 
   const themeColor = get(theme, 'color');
 
-  if (bg) {
-    const color = themeColor[bg];
+  const _bg = bg ?? backgroundColor;
+
+  if (_bg) {
+    const color = themeColor[_bg];
     if (color) {
       _style.backgroundColor = color;
     } else {
-      _style.backgroundColor = bg;
+      _style.backgroundColor = _bg;
     }
   }
 
