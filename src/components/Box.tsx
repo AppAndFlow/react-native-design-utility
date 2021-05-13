@@ -118,7 +118,7 @@ export interface UtilityBoxProps extends ViewProps {
   paddingLeft?: SpaceType;
 
   px?: SpaceType;
-  paddingHorizontale?: SpaceType;
+  paddingHorizontal?: SpaceType;
 
   py?: SpaceType;
   paddingVertical?: SpaceType;
@@ -161,7 +161,7 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
   pl,
   paddingLeft,
   px,
-  paddingHorizontale,
+  paddingHorizontal,
 
   radius,
   borderRadius,
@@ -209,20 +209,20 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
   ...rest
 }) => {
   const _space = spaceUtils({
-    m,
-    mb,
-    mt,
-    mr,
-    ml,
-    my,
-    mx,
-    p,
-    pb,
-    py,
-    pt,
-    pr,
-    pl,
-    px,
+    m: m ?? margin,
+    mb: mb ?? marginBottom,
+    mt: mt ?? marginTop,
+    mr: mr ?? marginRight,
+    ml: ml ?? marginLeft,
+    my: my ?? marginVertical,
+    mx: mx ?? marginHorizontal,
+    p: p ?? padding,
+    pb: pb ?? paddingBottom,
+    py: py ?? paddingVertical,
+    pt: pt ?? paddingTop,
+    pr: pr ?? paddingRight,
+    pl: pl ?? paddingLeft,
+    px: px ?? paddingHorizontal,
     theme,
   });
   const _align = boxAlignUtils({ center });

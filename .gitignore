@@ -80,3 +80,5 @@ yalc.lock
 .idea
 
 lib
+
+.husky

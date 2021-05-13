@@ -75,7 +75,7 @@ export interface UtilityTextProps extends TextProps {
   marginLeft?: SpaceType;
 
   mx?: SpaceType;
-  marginHorizontale?: SpaceType;
+  marginHorizontal?: SpaceType;
 
   my?: SpaceType;
   marginVertical?: SpaceType;
@@ -96,7 +96,7 @@ export interface UtilityTextProps extends TextProps {
   paddingLeft?: SpaceType;
 
   px?: SpaceType;
-  paddingHorizontale?: SpaceType;
+  paddingHorizontal?: SpaceType;
 
   py?: SpaceType;
   paddingVertical?: SpaceType;
@@ -138,7 +138,7 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
   my,
   marginVertical,
   mx,
-  marginHorizontale,
+  marginHorizontal,
   p,
   padding,
   pb,
@@ -150,7 +150,7 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
   pl,
   paddingLeft,
   px,
-  paddingHorizontale,
+  paddingHorizontal,
   py,
   paddingVertical,
 
@@ -198,14 +198,14 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
     mr: mr ?? marginRight,
     ml: ml ?? marginLeft,
     my: my ?? marginVertical,
-    mx: mx ?? marginHorizontale,
+    mx: mx ?? marginHorizontal,
     p: p ?? padding,
     pb: pb ?? paddingBottom,
     py: py ?? paddingVertical,
     pt: pt ?? paddingTop,
     pr: pr ?? paddingRight,
     pl: pl ?? paddingLeft,
-    px: px ?? paddingHorizontale,
+    px: px ?? paddingHorizontal,
     theme,
   });
   const _size = textSizeUtils({ size: size ?? fontSize, theme });
