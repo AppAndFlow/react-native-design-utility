@@ -8,18 +8,12 @@ interface IProps {
   theme?: any;
 }
 
-export class UtilityThemeProvider extends React.Component<IProps> {
-  static defaultProps = {
-    theme: null,
-  };
-  state = {
-    theme: this.props.theme || theme,
-  };
-  render() {
-    return (
-      <UtilityThemeContext.Provider value={this.state.theme}>
-        {this.props.children}
-      </UtilityThemeContext.Provider>
-    );
-  }
-}
+export const UtilityThemeProvider = (
+  props: React.PropsWithChildren<IProps>,
+) => {
+  return (
+    <UtilityThemeContext.Provider value={props.theme || theme}>
+      {props.children}
+    </UtilityThemeContext.Provider>
+  );
+};

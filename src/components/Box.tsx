@@ -8,9 +8,7 @@ import {
 } from 'react-native';
 import get from 'lodash.get';
 
-import WrappedComponent from './WrappedComponent';
 import { spaceUtils } from '../utils/space';
-import { ITheme } from '../types/ITheme';
 import { SpaceType } from '../types/Space';
 import { boxAlignUtils } from '../utils/box/align';
 import { borderUtils } from '../utils/border';
@@ -32,10 +30,7 @@ import { opacityUtils } from '../utils/opacity';
 import { flattenStyle } from '../utils/flattenStyle';
 import { PositionType } from '../types/Position';
 import { positionUtils } from '../utils/position';
-
-export interface IInjectedProps {
-  theme: ITheme;
-}
+import { useThemeContext } from './WrappedComponent';
 
 export interface UtilityBoxProps extends ViewProps {
   style?: StyleProp<ViewStyle>;
@@ -132,8 +127,7 @@ export interface UtilityBoxProps extends ViewProps {
   rows?: number[];
 }
 
-const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
-  theme,
+const Box = ({
   m,
   margin,
   mb,
@@ -207,7 +201,9 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
 
   style: customStyle,
   ...rest
-}) => {
+}: React.PropsWithChildren<UtilityBoxProps>) => {
+  const theme = useThemeContext();
+
   const _space = spaceUtils({
     m: m ?? margin,
     mb: mb ?? marginBottom,
@@ -257,6 +253,7 @@ const Box: React.SFC<IInjectedProps & UtilityBoxProps> = ({
   const _bg = bg ?? backgroundColor;
 
   if (_bg) {
+    // @ts-ignore
     const color = themeColor[_bg];
     if (color) {
       _style.backgroundColor = color;
@@ -304,4 +301,4 @@ Box.defaultProps = {
 
 Box.displayName = 'Box';
 
-export default WrappedComponent(Box);
+export default Box;

@@ -7,7 +7,6 @@ import {
   StyleProp,
 } from 'react-native';
 
-import WrappedComponent from './WrappedComponent';
 import { spaceUtils } from '../utils/space';
 import { textSizeUtils } from '../utils/text/size';
 import { weightUtils } from '../utils/text/weight';
@@ -29,6 +28,7 @@ import { OpacityType } from '../types/OpacityType';
 import { opacityUtils } from '../utils/opacity';
 import { flattenStyle } from '../utils/flattenStyle';
 import { fontFamilyUtils } from '../utils/text/fontFamily';
+import { useThemeContext } from './WrappedComponent';
 
 export interface IInjectedProps {
   theme: ITheme;
@@ -120,8 +120,7 @@ export interface UtilityTextProps extends TextProps {
   fontWeight?: string;
 }
 
-const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
-  theme,
+const Text = ({
   border,
   color,
 
@@ -190,7 +189,8 @@ const Text: React.SFC<IInjectedProps & UtilityTextProps> = ({
   style: customStyle,
   children,
   ...rest
-}) => {
+}: React.PropsWithChildren<UtilityTextProps>) => {
+  const theme = useThemeContext();
   const _space = spaceUtils({
     m: m ?? margin,
     mb: mb ?? marginBottom,
@@ -277,4 +277,4 @@ Text.defaultProps = {
 
 Text.displayName = 'Text';
 
-export default WrappedComponent(Text);
+export default Text;
