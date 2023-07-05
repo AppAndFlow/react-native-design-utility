@@ -15,8 +15,8 @@ export const boxRowsUtils = (props: IProps) => {
     newChild = React.Children.map(
       // @ts-ignore
       props.children,
-      (child: React.ReactElement, i) => {
-        if (child.type === 'Box') {
+      (child: React.ReactElement<any, any>, i) => {
+        if (child.type === 'Box' || child.type.displayName === 'Box') {
           return React.cloneElement(child, {
             f: rows[i] || 1,
           });
