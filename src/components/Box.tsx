@@ -5,6 +5,7 @@ import {
   ViewProps,
   ViewStyle,
   StyleProp,
+  DimensionValue,
 } from 'react-native';
 import get from 'lodash.get';
 
@@ -43,11 +44,11 @@ export interface UtilityBoxProps extends ViewProps {
   o?: OpacityType | number | string;
   opacity?: OpacityType | number | string;
 
-  h?: number | string;
-  height?: number | string;
+  h?: DimensionValue;
+  height?: DimensionValue;
 
-  w?: number | string;
-  width?: number | string;
+  w?: DimensionValue;
+  width?: DimensionValue;
 
   f?: number;
   flex?: number;
@@ -199,7 +200,7 @@ const Box = ({
   left,
   right,
 
-  style: customStyle,
+  style: customStyle = {},
   ...rest
 }: React.PropsWithChildren<UtilityBoxProps>) => {
   const theme = useThemeContext();
@@ -293,10 +294,6 @@ const Box = ({
       {newChild}
     </View>
   );
-};
-
-Box.defaultProps = {
-  style: {},
 };
 
 Box.displayName = 'Box';

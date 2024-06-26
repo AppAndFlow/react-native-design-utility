@@ -1,7 +1,7 @@
 // TODO: Update this code
 
 import get from 'lodash.get';
-import { Image } from 'react-native';
+import { DimensionValue, Image } from 'react-native';
 import * as React from 'react';
 
 import { ITheme } from '../../types/ITheme';
@@ -12,8 +12,8 @@ interface IProps {
   theme: ITheme;
   circle?: number;
   size: {
-    height?: number | string;
-    width?: number | string;
+    height?: DimensionValue;
+    width?: DimensionValue;
   };
   avatar?: boolean;
   children?: React.ReactNode;
@@ -22,8 +22,8 @@ interface IProps {
 export const radiusUtils = (props: IProps) => {
   const _style: {
     borderRadius?: number;
-    height?: number;
-    width?: number;
+    height?: DimensionValue;
+    width?: DimensionValue;
   } = {};
 
   const themeRadius = get(props, ['theme', 'radius']);
